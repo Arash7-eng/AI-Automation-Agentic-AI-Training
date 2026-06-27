@@ -277,35 +277,6 @@ Through this project, I learned:
 * Automated workflow execution
 * Intelligent response generation
 * User-friendly interface
-
----
-
-# Screenshots
-
-### 1. n8n Dashboard
-
-Overview of the workflow editor.
-
-### 2. Webhook Configuration
-
-Webhook node receiving user input.
-
-### 3. Edit Fields Configuration
-
-Formatting travel details before AI processing.
-
-### 4. Google Gemini Chat Model
-
-Gemini model connected to the workflow.
-
-### 5. AI Agent Configuration
-
-AI Agent integrated with Gemini.
-
-### 6. Final Travel Itinerary
-
-AI-generated travel plan displayed after workflow execution.
-
 ---
 
 # Future Improvements
