@@ -1,121 +1,97 @@
-# Day 05 - AI Travel Planner using n8n AI Agent
+# Project Implementation
 
-## Overview
-
-On Day 05, I explored Artificial Intelligence (AI) Agents using the n8n workflow automation platform. I learned how AI Agents can automate decision-making, process user input, and generate intelligent responses by integrating Large Language Models (LLMs) such as Google Gemini.
-
-As a practical project, I built an **AI Travel Planner** that collects travel preferences through a web form, processes the information using an AI Agent, and generates a personalized travel itinerary.
+During Day 05, I successfully developed two AI-powered automation projects using **n8n**, **Google Gemini Chat Model**, **AI Agents**, **Webhooks**, and **HTML Forms**. These projects demonstrate how Artificial Intelligence can automate real-world tasks by processing user input and generating intelligent, personalized responses.
 
 ---
 
-# What is Artificial Intelligence (AI)?
+# Project 1: AI Travel Planner using n8n AI Agent
 
-Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that normally require human intelligence. These tasks include understanding language, solving problems, making decisions, and generating content.
+## Step 1: Designing the HTML Travel Planner Form
 
----
+The project began by creating a user-friendly HTML form to collect travel preferences. The form was designed with essential input fields, allowing users to provide:
 
-# What is an AI Agent?
+* Starting City
+* Destination
+* Number of Travel Days
+* Budget
+* Travel Style
 
-An AI Agent is an intelligent software system that receives input, processes information, makes decisions using an AI model, and produces useful outputs automatically.
-
-Unlike traditional programs, AI Agents can understand user requests and generate dynamic, context-aware responses.
-
----
-
-# Why Use AI Agents?
-
-AI Agents are widely used because they:
-
-* Automate repetitive tasks
-* Save time and improve productivity
-* Understand natural language
-* Generate intelligent responses
-* Reduce manual effort
-* Improve user experience
-* Connect with external applications and APIs
+The form was configured to send user information to the n8n Webhook using the **HTTP POST** method.
 
 ---
 
-# Features of AI Agents
+## Step 2: Configuring the Webhook Node
 
-* Natural Language Understanding
-* Intelligent Decision Making
-* Workflow Automation
-* API Integration
-* Real-Time Processing
-* Context-Based Responses
-* Scalable and Flexible Design
+The Webhook node was created as the starting point of the workflow. It receives the data submitted from the HTML form and triggers the automation process.
 
----
+**Configuration**
 
-# Applications of AI Agents
+* HTTP Method: POST
+* Authentication: None
+* Custom Webhook Path
 
-AI Agents are used in many real-world applications, including:
-
-* Travel Planning
-* Customer Support Chatbots
-* Virtual Assistants
-* Content Generation
-* Email Automation
-* Business Process Automation
-* Data Analysis
-* Educational Assistants
+Once the form is submitted, the workflow starts automatically.
 
 ---
 
-# What is n8n?
+## Step 3: Processing User Data with Edit Fields
 
-n8n is an open-source workflow automation platform that enables users to connect different applications using visual workflows. It supports APIs, Webhooks, AI models, databases, and cloud services, allowing complex automation without extensive coding.
+After receiving the data, the **Edit Fields** node organizes and formats the travel details into a structured AI prompt.
 
----
+The prompt contains:
 
-# Why Use n8n for AI Workflows?
+* Starting City
+* Destination
+* Number of Days
+* Budget
+* Travel Style
 
-* Easy drag-and-drop interface
-* Supports AI Agents
-* Connects with Google Gemini and OpenAI
-* Integrates Webhooks and APIs
-* Automates complete workflows
-* Open-source and customizable
-
----
-
-# Google Gemini Chat Model
-
-Google Gemini is a Large Language Model (LLM) developed by Google. It can understand user queries, generate human-like text, answer questions, and create personalized content.
-
-In this project, Gemini generates customized travel itineraries based on user preferences.
+This ensures that the AI receives well-structured information for generating accurate travel recommendations.
 
 ---
 
-# Project Title
+## Step 4: Connecting the Google Gemini Chat Model
 
-AI Travel Planner using n8n AI Agent
+The Google Gemini Chat Model was integrated into the workflow to provide Artificial Intelligence capabilities.
 
----
-
-# Project Objective
-
-The objective of this project is to build an AI-powered travel planning system that automatically creates personalized travel itineraries based on user input.
-
-The workflow collects travel information, processes it through an AI Agent, and generates a detailed travel plan.
+Gemini analyzes the formatted prompt, understands the user's travel preferences, and prepares intelligent responses.
 
 ---
 
-# Technologies Used
+## Step 5: Configuring the AI Agent
 
-* n8n
-* AI Agent
-* Google Gemini Chat Model
-* HTML
-* Webhooks
-* Workflow Automation
+The AI Agent acts as the decision-making component of the workflow.
+
+Its responsibilities include:
+
+* Reading the structured prompt.
+* Understanding user travel requirements.
+* Sending the prompt to Google Gemini.
+* Receiving the generated response.
+* Returning a personalized travel itinerary.
 
 ---
 
-# Project Workflow
+## Step 6: Generating the Final Travel Itinerary
 
-Travel Planner HTML Form
+After processing the request, the AI Agent generates a detailed travel plan containing:
+
+* Trip Summary
+* Day-wise Itinerary
+* Tourist Attractions
+* Local Food Recommendations
+* Estimated Budget Breakdown
+* Transportation Suggestions
+* Travel Tips
+* Safety Guidelines
+
+The complete response is generated automatically without manual intervention.
+
+---
+
+# Travel Planner Workflow
+
+HTML Travel Form
 
 ↓
 
@@ -139,69 +115,102 @@ Personalized Travel Itinerary
 
 ---
 
-# Workflow Components
+# Project 2: AI Shopping Assistant using n8n AI Agent
 
-## 1. HTML Form
+## Step 1: Designing the HTML Shopping Form
 
-The user enters:
+The second project involved creating an intelligent shopping assistant.
 
-* Destination
-* Starting City
-* Number of Days
+A dedicated HTML form was developed to collect shopping preferences, including:
+
+* Product Category
+* Product Name
 * Budget
-* Travel Style
+* Preferred Brand
+* Purpose of Purchase
 
-The form sends this information to the n8n Webhook.
-
----
-
-## 2. Webhook Node
-
-The Webhook acts as the entry point of the workflow.
-
-Responsibilities:
-
-* Receives form data
-* Starts workflow execution
-* Passes information to the next node
+The form submits user information to the n8n Webhook using the **HTTP POST** method.
 
 ---
 
-## 3. Edit Fields Node
+## Step 2: Configuring the Shopping Webhook
 
-This node formats and organizes the incoming data before sending it to the AI Agent.
+A separate Webhook node was configured to receive shopping details from the HTML form.
 
-It ensures the prompt is structured correctly for the AI model.
+**Configuration**
+
+* HTTP Method: POST
+* Authentication: None
+* Custom Webhook Path
+
+This node acts as the entry point for the shopping assistant workflow.
 
 ---
 
-## 4. Google Gemini Chat Model
+## Step 3: Formatting Data using Edit Fields
 
-The Gemini model receives the formatted prompt and generates an intelligent travel itinerary based on:
+The **Edit Fields** node converts the user inputs into a structured prompt before sending the request to the AI Agent.
 
-* Destination
+The formatted prompt includes:
+
+* Product Category
+* Product Name
 * Budget
-* Number of Days
-* Travel Style
+* Brand Preference
+* Purpose of Purchase
+
+This improves the quality and accuracy of AI-generated recommendations.
 
 ---
 
-## 5. AI Agent
+## Step 4: Integrating Google Gemini Chat Model
 
-The AI Agent coordinates the conversation between the workflow and the Gemini model.
+The Google Gemini Chat Model processes the shopping prompt and analyzes the user's requirements.
+
+It understands:
+
+* Product type
+* Budget limitations
+* Brand preferences
+* Intended purpose
+
+Based on this information, Gemini prepares intelligent shopping recommendations.
+
+---
+
+## Step 5: Configuring the AI Agent
+
+The AI Agent coordinates communication between the workflow and the Gemini model.
 
 Its responsibilities include:
 
-* Understanding user requirements
-* Sending prompts to Gemini
-* Receiving AI-generated responses
-* Returning the final itinerary
+* Understanding shopping requirements.
+* Sending prompts to Gemini.
+* Receiving AI-generated recommendations.
+* Returning the final shopping guide.
 
 ---
 
-# Workflow Diagram
+## Step 6: Generating Shopping Recommendations
 
-HTML Form
+The AI Shopping Assistant automatically produces a detailed recommendation containing:
+
+* Product Overview
+* Top 5 Recommended Products
+* Product Features
+* Price Range
+* Pros and Cons
+* Best Value for Money Recommendation
+* Buying Tips
+* Final Recommendation
+
+The complete response is generated within seconds based on the user's preferences.
+
+---
+
+# Shopping Assistant Workflow
+
+HTML Shopping Form
 
 ↓
 
@@ -221,76 +230,28 @@ AI Agent
 
 ↓
 
-Travel Plan Generated
+Personalized Shopping Recommendations
 
 ---
 
-# Implementation Steps
+# Skills Gained
 
-### Step 1
+Through these two projects, I gained practical experience in:
 
-Created an HTML travel planner form.
-
-### Step 2
-
-Configured the Webhook node to receive user input.
-
-### Step 3
-
-Formatted travel details using the Edit Fields node.
-
-### Step 4
-
-Connected the Google Gemini Chat Model.
-
-### Step 5
-
-Configured the AI Agent.
-
-### Step 6
-
-Executed the workflow and generated a personalized travel itinerary.
-
----
-
-# Learning Outcomes
-
-Through this project, I learned:
-
-* Fundamentals of AI Agents
-* Workflow automation using n8n
-* Webhook configuration
-* Prompt engineering basics
-* Google Gemini integration
-* AI-powered content generation
-* Data processing using Edit Fields
-* End-to-end workflow automation
-
----
-
-# Project Features
-
-* AI-powered travel recommendations
-* Personalized itinerary generation
-* Budget-aware planning
-* Destination-based suggestions
-* Automated workflow execution
-* Intelligent response generation
-* User-friendly interface
----
-
-# Future Improvements
-
-* Hotel booking recommendations
-* Weather integration
-* Flight price suggestions
-* Interactive maps
-* Email itinerary delivery
-* PDF itinerary generation
-* Multi-language support
+* Artificial Intelligence Fundamentals
+* AI Agent Development
+* Workflow Automation using n8n
+* Google Gemini Chat Model Integration
+* Webhook Configuration
+* Prompt Engineering
+* HTML Form Development
+* Data Processing using Edit Fields
+* AI-powered Response Generation
+* Intelligent Workflow Design
+* Real-world Automation Solutions
 
 ---
 
 # Conclusion
 
-This project provided practical experience in building AI-powered automation using n8n. By combining Webhooks, Edit Fields, Google Gemini, and an AI Agent, I created a smart travel planner capable of generating personalized travel itineraries based on user preferences. This project strengthened my understanding of workflow automation, prompt engineering, AI integration, and intelligent application development.
+By completing both the **AI Travel Planner** and **AI Shopping Assistant**, I gained hands-on experience in designing intelligent automation workflows using **n8n**, **Google Gemini**, and **AI Agents**. These projects demonstrated how AI can automate complex tasks, process user input, generate personalized recommendations, and improve user experience. They strengthened my understanding of workflow automation, prompt engineering, AI integration, and practical application development while showcasing how modern AI tools can solve real-world problems efficiently.
