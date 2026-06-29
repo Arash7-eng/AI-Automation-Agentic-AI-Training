@@ -2,22 +2,19 @@
 
 ## 📖 Overview
 
-On Day 06, I developed an **AI Study Tutor** using **n8n**, **Google Gemini AI**, and **Google Sheets**. This project automates the process of answering students' academic questions through an AI-powered workflow.
+On Day 06, I built an **AI Study Tutor** using **n8n**, **Google Gemini AI**, and **Google Sheets**. The workflow automates answering students' academic questions by combining workflow automation with artificial intelligence.
 
-The workflow receives student details through a Webhook, checks whether the student already exists in Google Sheets, processes the data using conditional logic, generates an intelligent response with Google Gemini, stores the interaction, and sends the answer back instantly.
-
-This project demonstrates how workflow automation and AI can be combined to create an efficient educational assistant.
+The system receives student information through a Webhook, checks existing records in Google Sheets, processes the data using conditional logic, generates an AI-powered response using Google Gemini, stores the interaction, and returns the response instantly.
 
 ---
 
-# 🎯 Project Objectives
+# 🎯 Objective
 
 - Build an AI-powered study assistant.
-- Accept student questions through a Webhook.
-- Retrieve student records from Google Sheets.
-- Generate accurate answers using Google Gemini AI.
+- Automate question answering using Google Gemini.
+- Manage student records using Google Sheets.
 - Store every interaction automatically.
-- Return AI-generated responses instantly.
+- Return AI-generated responses in real time.
 
 ---
 
@@ -64,47 +61,128 @@ Respond to Webhook
 
 ---
 
-# 📌 Workflow Explanation
+# 🚀 Workflow Execution
 
-### 1. Webhook
-The workflow starts with a Webhook that receives the student's name, subject, and question submitted from an HTML form.
+## Step 1: Webhook Trigger
 
-### 2. Get Rows in Google Sheets
-The workflow reads data from Google Sheets to determine whether the student already exists.
+The workflow starts when a student submits the HTML form.
 
-### 3. IF Node
-The IF node checks whether a matching student record is found.
+The Webhook receives information such as:
 
-- **True:** The workflow continues through the JavaScript Code node.
-- **False:** The workflow continues through the Edit Fields node.
+- Student Name
+- Subject
+- Question
 
-### 4. Code (JavaScript)
-The Code node formats or processes the existing student data before sending it to the AI Agent.
+This data becomes the input for the workflow.
 
-### 5. Edit Fields
-For new students, the Edit Fields node structures the incoming data into the required format for the AI Agent.
+---
 
-### 6. AI Agent (Google Gemini)
-The AI Agent receives the student's question and generates a clear, informative, and accurate response using the Google Gemini Chat Model.
+## Step 2: Read Student Data from Google Sheets
 
-### 7. Append Row in Google Sheets
-The student's question and the AI-generated response are automatically saved in Google Sheets for future reference.
+The **Get Rows** node searches the connected Google Sheet using the student's name.
 
-### 8. Respond to Webhook
-Finally, the generated answer is returned to the user through the Webhook response.
+Purpose:
+
+- Check whether the student already exists.
+- Retrieve any matching records.
+- Pass the result to the next node.
+
+---
+
+## Step 3: IF Node
+
+The IF node checks whether a matching student record was found.
+
+### If the student exists
+
+The workflow follows the **True** path and sends the data to the **Code (JavaScript)** node.
+
+### If the student does not exist
+
+The workflow follows the **False** path and sends the data to the **Edit Fields** node.
+
+---
+
+## Step 4A: Code (JavaScript)
+
+When an existing student is found, the Code node processes the retrieved data.
+
+Tasks performed include:
+
+- Reading student information.
+- Formatting the data.
+- Preparing the prompt for the AI Agent.
+- Passing structured data to the next step.
+
+---
+
+## Step 4B: Edit Fields
+
+If no matching student is found, the Edit Fields node creates a clean JSON object containing:
+
+- Student Name
+- Subject
+- Question
+
+This ensures that the AI Agent always receives data in the correct format.
+
+---
+
+## Step 5: AI Agent (Google Gemini)
+
+The AI Agent receives the formatted data and sends the student's question to the Google Gemini Chat Model.
+
+The AI analyzes the question and generates a detailed educational response.
+
+Example:
+
+**Question**
+
+```
+Explain Newton's First Law.
+```
+
+**AI Response**
+
+```
+Newton's First Law states that an object remains at rest or continues moving with constant velocity unless acted upon by an external force.
+```
+
+---
+
+## Step 6: Append Row in Google Sheets
+
+After generating the response, the workflow stores the interaction in Google Sheets.
+
+The following information is saved:
+
+- Student Name
+- Subject
+- Question
+- AI Response
+
+This creates a history of all interactions for future reference.
+
+---
+
+## Step 7: Respond to Webhook
+
+Finally, the Respond to Webhook node sends the AI-generated answer back to the user.
+
+The student immediately receives the response on the webpage without needing to refresh or manually check the results.
 
 ---
 
 # ✨ Features
 
-- AI-powered educational assistant
+- AI-powered study assistant
+- Automated workflow using n8n
 - Google Gemini AI integration
 - Google Sheets database
-- Student record lookup
-- Conditional workflow logic
-- Automatic data storage
-- Instant AI responses
-- Fully automated workflow
+- Student record verification
+- Conditional workflow execution
+- Automatic response storage
+- Real-time AI-generated answers
 
 ---
 
@@ -112,33 +190,33 @@ Finally, the generated answer is returned to the user through the Webhook respon
 
 Through this project, I learned how to:
 
-- Build AI-powered workflows using n8n.
+- Create AI-powered workflows using n8n.
 - Integrate Google Gemini with AI Agent nodes.
-- Use Webhooks to receive user input.
+- Use Webhooks to receive user requests.
 - Read and write data using Google Sheets.
-- Apply conditional logic with IF nodes.
+- Implement conditional logic with IF nodes.
 - Process data using JavaScript.
-- Format data with Edit Fields.
-- Automate complete AI workflows.
+- Structure workflow data using Edit Fields.
+- Automate complete AI-based processes.
+- Return responses using the Respond to Webhook node.
 
 ---
 
 # 🚧 Challenges Faced
 
 - Configuring the Webhook correctly.
-- Mapping Google Sheets data.
-- Passing data between workflow nodes.
-- Writing expressions for different nodes.
-- Debugging IF conditions.
-- Formatting prompts for AI responses.
-- Handling missing or null values.
+- Connecting Google Sheets with n8n.
+- Mapping fields between nodes.
+- Passing data correctly through the workflow.
+- Writing expressions in different nodes.
+- Handling IF node conditions.
+- Formatting prompts for the AI Agent.
+- Managing null or missing values during testing.
 
 ---
 
-# ✅ Project Outcome
+# ✅ Outcome
 
-Successfully developed an AI-powered Study Tutor that can automatically answer students' academic questions using Google Gemini. The workflow retrieves student information, processes requests, generates intelligent responses, stores the interactions in Google Sheets, and returns answers instantly through a Webhook.
+Successfully built an AI-powered Study Tutor capable of answering students' academic questions automatically. The workflow efficiently receives student queries, checks existing records, processes data, generates intelligent responses using Google Gemini, stores every interaction in Google Sheets, and returns responses instantly through a Webhook.
 
-This project enhanced my understanding of AI automation, workflow design, Google Sheets integration, JavaScript processing, and API-based communication using n8n.
-
----
+This project strengthened my understanding of workflow automation, AI integration, conditional logic, data processing, and API communication using n8n.
