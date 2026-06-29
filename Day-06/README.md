@@ -142,24 +142,3 @@ Successfully developed an AI-powered Study Tutor that can automatically answer s
 This project enhanced my understanding of AI automation, workflow design, Google Sheets integration, JavaScript processing, and API-based communication using n8n.
 
 ---
-
-# 📂 Project Structure
-
-```
-Day-06-AI-Study-Tutor/
-│
-├── README.md
-├── workflow.json
-├── ai-study-tutor.html
-└── assets/
-```
-
----
-
-# 👩‍💻 Author
-
-**Arashpreet Kaur**
-
-Computer Science & Engineering Student
-
-Currently learning **n8n, AI Automation, Google Gemini, Workflow Automation, and Web Development.**
