@@ -1,265 +1,334 @@
-Day 07 – AI Fitness Coach & AI Customer Support Assistant using n8n
-Overview
+# Day 07 – AI Fitness Coach & AI Customer Support Assistant using n8n
 
-On Day 07, I developed two AI-powered workflow automation projects using the n8n platform: AI Fitness Coach and AI Customer Support Assistant. These projects demonstrate how AI Agents can automate personalized responses by processing user input received through HTML forms. The workflows integrate Webhooks, Google Sheets, JavaScript, IF conditions, AI Agents, and Google Gemini Chat Model to provide intelligent, automated solutions.
+## Overview
 
-Both workflows were designed to check whether a user or customer already exists in Google Sheets before generating a response. Depending on the result, the workflow either processes existing data or creates a new record.
+On Day 07, I built two AI-powered automation workflows using the n8n platform: **AI Fitness Coach** and **AI Customer Support Assistant**. These projects demonstrate how AI Agents can automate personalized responses by combining HTML forms, Webhooks, Google Sheets, JavaScript, conditional logic, and Google Gemini AI. I also learned how to check existing records in Google Sheets before processing new requests, making the workflows more efficient and organized.
 
-Project 1 – AI Fitness Coach
-Objective
+---
 
-Build an AI-powered Fitness Coach that generates personalized fitness recommendations based on user information and stores the results automatically in Google Sheets.
+# Project 1 – AI Fitness Coach
 
-Technologies Used
-n8n
-Google Gemini Chat Model
-AI Agent
-Google Sheets
-Webhook
-JavaScript
-IF Node
+## Objective
+
+The goal of this project was to create an AI-powered Fitness Coach that generates personalized workout and diet recommendations based on the user's fitness information. The workflow stores user details in Google Sheets and uses AI to generate customized fitness guidance.
+
+---
+
+## Technologies Used
+
+- n8n
+- Google Gemini Chat Model
+- AI Agent
+- HTML Form
+- Webhook
+- Google Sheets
+- JavaScript
+- IF Node
+- Edit Fields Node
+
+---
+
+## Workflow
+
+```
 HTML Form
-Workflow Architecture
-HTML Form
       │
       ▼
 Webhook
       │
       ▼
-Get Row(s) in Google Sheet
+Get Row(s) in Google Sheets
       │
       ▼
 IF Node
- ├──────── Existing User ───────► Code (JavaScript)
- │                                 │
- │                                 ▼
- └──────── New User ───────────► Edit Fields
+├──────── Existing User ───────► Code (JavaScript)
+│                                 │
+│                                 ▼
+└──────── New User ───────────► Edit Fields
                                    │
                                    ▼
                               AI Agent
                                    │
                                    ▼
-                          Append Row in Google Sheet
-Step 1 – HTML Form
+                         Append Row in Google Sheets
+```
 
-Created an HTML form to collect fitness information from users.
+---
 
-Collected information:
+## Step 1 – HTML Form
 
-Name
-Age
-Gender
-Height
-Weight
-Fitness Goal
-Activity Level
-Workout Days
-Diet Preference
-Health Issues
-Email
+Created an HTML form to collect user information.
 
-The form submits data using the POST method to the n8n Webhook.
+The form collects:
 
-Step 2 – Webhook
+- Name
+- Email
+- Age
+- Gender
+- Height
+- Weight
+- Fitness Goal
+- Activity Level
+- Workout Days
+- Diet Preference
+- Health Issues
 
-Configured the Webhook node to receive data submitted from the HTML form.
+The form sends data to the n8n Webhook using the POST method.
 
-Configuration
-HTTP Method: POST
-Path: ai-fitness-coach
+---
 
-The Webhook acts as the entry point of the workflow.
+## Step 2 – Webhook
 
-Step 3 – Google Sheets (Get Row(s))
+Configured the Webhook node to receive form submissions.
 
-Connected Google Sheets to search for an existing user before generating a new fitness plan.
+- HTTP Method: POST
+- Path: `ai-fitness-coach`
 
-The node searches the sheet using the user's email or name to determine whether the user already exists.
+The Webhook acts as the starting point of the workflow.
 
-This helps avoid duplicate records and supports returning users.
+---
 
-Step 4 – IF Node
+## Step 3 – Get Row(s) in Google Sheets
 
-Added an IF node after Google Sheets.
+Connected Google Sheets to search for an existing user using the Email or Name column.
 
-The IF node checks whether the Get Row(s) node returned any matching records.
+This step helps determine whether the user already exists before generating a new fitness plan.
 
-Existing User
+---
 
-The workflow moves to the JavaScript node.
+## Step 4 – IF Node
 
-New User
+Configured the IF node to check whether Google Sheets returned any matching records.
 
-The workflow moves to the Edit Fields node.
+- **True:** Existing user → Code (JavaScript)
+- **False:** New user → Edit Fields
 
-Step 5 – Code (JavaScript)
+This allows different processing for existing and new users.
 
-For existing users, the JavaScript node prepares and formats the retrieved data before sending it to the AI Agent.
+---
 
-The Code node allows custom processing and data transformation within the workflow.
+## Step 5 – Code (JavaScript)
 
-Step 6 – Edit Fields
+The JavaScript node processes and formats data for existing users before sending it to the AI Agent.
 
-For new users, the Edit Fields node organizes and maps all incoming form fields into a clean structure.
+This step demonstrates how JavaScript can be used to manipulate workflow data inside n8n.
+
+---
+
+## Step 6 – Edit Fields
+
+The Edit Fields node organizes the incoming data for new users.
 
 Mapped fields include:
 
-Name
-Email
-Age
-Gender
-Height
-Weight
-Fitness Goal
-Activity Level
-Workout Days
-Diet Preference
-Health Issues
+- Name
+- Email
+- Age
+- Gender
+- Height
+- Weight
+- Fitness Goal
+- Activity Level
+- Workout Days
+- Diet Preference
+- Health Issues
 
-This makes the data easier to use in the AI Agent and Google Sheets.
+---
 
-Step 7 – AI Agent
+## Step 7 – AI Agent
 
 Connected the Google Gemini Chat Model to the AI Agent.
 
-The AI Agent analyzes the user's information and generates a personalized response that includes:
+The AI analyzes the user's information and generates:
 
-Fitness analysis
-Workout recommendations
-Diet suggestions
-Hydration advice
-Sleep recommendations
-Motivation tips
+- Personalized workout plan
+- Diet recommendations
+- Fitness analysis
+- Hydration suggestions
+- Sleep recommendations
+- Motivation tips
 
-The AI response is generated automatically based on the user's fitness goals and health information.
+---
 
-Step 8 – Append Row in Google Sheets
+## Step 8 – Append Row in Google Sheets
 
-Stored both the user's information and the AI-generated fitness plan in Google Sheets.
+Saved the following information:
 
-Saved data includes:
+- Name
+- Email
+- Age
+- Gender
+- Height
+- Weight
+- Fitness Goal
+- Activity Level
+- Workout Days
+- Diet Preference
+- Health Issues
+- AI Response
+- Date
 
-Name
-Email
-Age
-Gender
-Height
-Weight
-Goal
-Activity Level
-Workout Days
-Diet Preference
-Health Issues
-AI Response
-Date
-Project 2 – AI Customer Support Assistant
-Objective
+---
 
-Develop an AI-powered customer support system capable of understanding customer issues and generating professional responses automatically.
+# Project 2 – AI Customer Support Assistant
 
-Technologies Used
-n8n
-Google Gemini Chat Model
-AI Agent
-Google Sheets
+## Objective
+
+Build an AI-powered Customer Support Assistant that automatically responds to customer queries and stores customer requests in Google Sheets.
+
+---
+
+## Technologies Used
+
+- n8n
+- Google Gemini Chat Model
+- AI Agent
+- HTML Form
+- Webhook
+- Google Sheets
+- JavaScript
+- IF Node
+- Edit Fields Node
+
+---
+
+## Workflow
+
+```
 HTML Form
-Webhook
-JavaScript
-IF Node
-Workflow Architecture
-HTML Form
       │
       ▼
 Webhook
       │
       ▼
-Get Row(s) in Google Sheet
+Get Row(s) in Google Sheets
       │
       ▼
 IF Node
- ├──────── Existing Customer ─────► Code (JavaScript)
- │                                   │
- │                                   ▼
- └──────── New Customer ─────────► Edit Fields
+├──────── Existing Customer ─────► Code (JavaScript)
+│                                   │
+│                                   ▼
+└──────── New Customer ─────────► Edit Fields
                                      │
                                      ▼
                                 AI Agent
                                      │
                                      ▼
-                           Append Row in Google Sheet
-Step 1 – HTML Form
+                           Append Row in Google Sheets
+```
 
-Created a support request form to collect customer details.
+---
 
-Collected information:
+## Step 1 – HTML Form
 
-Customer Name
-Email
-Phone Number
-Order ID
-Issue Category
-Priority
-Message
-Step 2 – Webhook
+Created a support request form to collect:
 
-Configured the Webhook node to receive support requests submitted from the HTML form.
+- Customer Name
+- Email
+- Phone Number
+- Order ID
+- Issue Category
+- Priority
+- Message
 
-Step 3 – Google Sheets (Get Row(s))
+The form submits data using the POST method.
 
-Used Google Sheets to search for an existing customer or order based on the Order ID or Email.
+---
 
-Step 4 – IF Node
+## Step 2 – Webhook
 
-The IF node checks whether a matching customer record exists.
+Configured the Webhook node to receive customer requests from the HTML form.
 
-Existing customer → JavaScript
-New customer → Edit Fields
-Step 5 – Code (JavaScript)
+---
 
-Formats and prepares customer data retrieved from Google Sheets before sending it to the AI Agent.
+## Step 3 – Get Row(s) in Google Sheets
 
-Step 6 – Edit Fields
+Configured Google Sheets to search for an existing customer using the Order ID or Email.
 
-Maps incoming customer information into a clean structure for AI processing.
+This prevents duplicate customer records.
+
+---
+
+## Step 4 – IF Node
+
+The IF node checks whether the customer already exists.
+
+- **True:** Existing customer → Code (JavaScript)
+- **False:** New customer → Edit Fields
+
+---
+
+## Step 5 – Code (JavaScript)
+
+Formats and prepares existing customer information before passing it to the AI Agent.
+
+---
+
+## Step 6 – Edit Fields
+
+Maps incoming customer information into a structured format.
 
 Fields include:
 
-Customer Name
-Email
-Phone Number
-Order ID
-Issue Category
-Priority
-Message
-Step 7 – AI Agent
+- Customer Name
+- Email
+- Phone Number
+- Order ID
+- Issue Category
+- Priority
+- Message
 
-The AI Agent analyzes the customer's issue and generates a professional support response.
+---
 
-The response typically includes:
+## Step 7 – AI Agent
 
-Greeting
-Issue summary
-Suggested solution
-Estimated resolution time
-Escalation guidance if required
-Step 8 – Append Row in Google Sheets
+The AI Agent analyzes the customer's issue and generates a professional response.
 
-Stored customer information together with the AI-generated response in Google Sheets for future reference.
+The response includes:
 
-Key Learning Outcomes
+- Greeting
+- Issue summary
+- Suggested solution
+- Estimated resolution time
+- Escalation guidance when necessary
 
-During Day 07, I learned how to:
+---
 
-Build complete AI-powered automation workflows in n8n.
-Create HTML forms that communicate with Webhook nodes.
-Connect Google Sheets for reading and writing data.
-Use Get Row(s) to check whether a record already exists.
-Apply IF conditions to create different workflow paths.
-Process data using the Code (JavaScript) node.
-Organize incoming data with the Edit Fields node.
-Integrate the Google Gemini Chat Model with an AI Agent.
-Store AI-generated responses in Google Sheets.
-Design reusable workflows for different real-world use cases.
-Conclusion
+## Step 8 – Append Row in Google Sheets
 
-Day 07 focused on creating intelligent automation workflows that combine AI with data management. The AI Fitness Coach delivers personalized health and fitness guidance, while the AI Customer Support Assistant automates customer query handling with professional responses. These projects strengthened my understanding of workflow logic, conditional processing, AI integration, JavaScript data handling, and Google Sheets automation using n8n.
+Stores customer information together with the AI-generated response.
+
+Saved data includes:
+
+- Customer Name
+- Email
+- Phone Number
+- Order ID
+- Issue Category
+- Priority
+- Message
+- AI Response
+- Date
+
+---
+
+# What I Learned
+
+During Day 07, I gained practical experience with:
+
+- Creating AI-powered workflows using n8n.
+- Building HTML forms for user input.
+- Configuring Webhook nodes.
+- Reading existing records using **Get Row(s)**.
+- Applying conditional workflow logic using the **IF** node.
+- Processing data with the **Code (JavaScript)** node.
+- Organizing data using the **Edit Fields** node.
+- Integrating the **Google Gemini Chat Model** with an AI Agent.
+- Saving workflow data to Google Sheets.
+- Building intelligent automation workflows for real-world applications.
+
+---
+
+# Conclusion
+
+Day 07 focused on developing intelligent AI automation workflows that combine user input, conditional logic, AI processing, and cloud-based data storage. The AI Fitness Coach generates personalized fitness recommendations, while the AI Customer Support Assistant provides automated responses to customer queries. These projects strengthened my understanding of workflow automation, AI integration, Google Sheets connectivity, and real-world problem solving using n8n.
