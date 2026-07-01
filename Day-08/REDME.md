@@ -199,7 +199,7 @@ Through this project, I learned:
 
 This project demonstrates how Artificial Intelligence and workflow automation can simplify expense management by automatically categorizing expenses and storing them efficiently. It is a practical example of integrating AI with n8n to build intelligent automation solutions.
 
-# Guess Number 
+
 # Guess Number
 
 ## Overview
