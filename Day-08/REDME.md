@@ -194,34 +194,25 @@ Through this project, I learned:
 
 ---
 
-## Screenshots
-
-- Complete Workflow
-- AI Agent Configuration
-- JavaScript Node
-- Switch Node
-- Google Sheets Configuration
-- HTML Form
-- Final Google Sheets Output
-
----
 
 ## Conclusion
 
 This project demonstrates how Artificial Intelligence and workflow automation can simplify expense management by automatically categorizing expenses and storing them efficiently. It is a practical example of integrating AI with n8n to build intelligent automation solutions.
+
 # Guess Number Game
+# Number Strength Checker
 
 ## Overview
 
-The Guess Number Game is a simple interactive web application developed using HTML, CSS, and JavaScript. The objective of the game is to guess a randomly generated number within a limited number of attempts.
+The Number Strength Checker is a simple interactive web application developed using HTML, CSS, and JavaScript. Users manually enter a number into the input field, and the application analyzes it based on predefined conditions to classify it as **Easy**, **Medium**, or **Strong**.
 
-The game provides instant feedback after every guess, making it an excellent beginner-friendly JavaScript project for understanding user interaction, conditional statements, loops, and random number generation.
+This project demonstrates user input handling, conditional statements, JavaScript functions, and DOM manipulation in a simple and interactive way.
 
 ---
 
 ## Project Objective
 
-To build an interactive browser-based game where users can guess a randomly generated number and receive hints until they either win or run out of attempts.
+To build a browser-based application that accepts a user-entered number and categorizes it into Easy, Medium, or Strong based on predefined rules.
 
 ---
 
@@ -235,60 +226,55 @@ To build an interactive browser-based game where users can guess a randomly gene
 
 ## Features
 
-- Random number generation
-- User-friendly interface
+- Manual number input
+- Instant result display
+- Easy, Medium, and Strong classification
+- Simple and user-friendly interface
 - Input validation
-- Instant feedback
-- Winning and losing messages
-- Restart game functionality
 - Responsive design
 
 ---
 
-## How the Game Works
+## How the Application Works
 
 ### Step 1
 
-When the game starts, JavaScript generates a random number.
+The user enters a number into the input field.
 
 ---
 
 ### Step 2
 
-The player enters a number in the input box.
+The user clicks the **Check** button.
 
 ---
 
 ### Step 3
 
-The game compares the entered number with the randomly generated number.
-
-Possible responses:
-
-- Too High
-- Too Low
-- Correct Guess
+The JavaScript program evaluates the entered number using predefined conditions.
 
 ---
 
 ### Step 4
 
-The game continues until:
+Based on the evaluation, the application displays one of the following results:
 
-- The correct number is guessed.
-- The maximum number of attempts is reached.
+- Easy
+- Medium
+- Strong
 
 ---
 
 ### Step 5
 
-After the game ends, the player can restart and play again.
+The user can enter another number and check the result again.
 
 ---
 
 ## Project Structure
 
-Guess-Number-Game/
+```
+Number-Strength-Checker/
 
 │── index.html
 
@@ -296,37 +282,52 @@ Guess-Number-Game/
 
 │── script.js
 
-│── images/
-
 │── README.md
+```
 
 ---
 
-## Sample Gameplay
+## Sample Usage
 
-Random Number:
-37
+### User Input
 
-Player Guess:
-25
+```
+4
+```
 
-Output:
+Output
 
-Too Low! Try Again.
+```
+Easy
+```
 
-Player Guess:
-45
+---
 
-Output:
+### User Input
 
-Too High! Try Again.
+```
+15
+```
 
-Player Guess:
-37
+Output
 
-Output:
+```
+Medium
+```
 
-Congratulations! You guessed the correct number.
+---
+
+### User Input
+
+```
+28
+```
+
+Output
+
+```
+Strong
+```
 
 ---
 
@@ -334,38 +335,31 @@ Congratulations! You guessed the correct number.
 
 This project helped me understand:
 
+- HTML Forms
+- CSS Styling
 - JavaScript Variables
 - Functions
 - DOM Manipulation
 - Event Handling
-- Random Number Generation
 - Conditional Statements
-- Loops
 - User Input Validation
 
 ---
 
 ## Future Improvements
 
-- Difficulty Levels
-- Score System
-- Timer
-- Sound Effects
-- Dark Mode
-- High Score Board
-- Multiplayer Mode
-
----
-
-## Screenshots
-
-- Home Screen
-- Gameplay
-- Winning Screen
-- Losing Screen
+- Dynamic strength meter
+- Better UI animations
+- Reset button
+- Input history
+- Dark mode
+- Mobile-friendly enhancements
 
 ---
 
 ## Conclusion
 
+The Number Strength Checker is a beginner-friendly JavaScript project that demonstrates how to accept user input, process it using conditional logic, and display meaningful results. It provides practical experience with DOM manipulation, event handling, and interactive web development.
+
+## Overview
 The Guess Number Game is a beginner-friendly JavaScript project that demonstrates how interactive web applications work using HTML, CSS, and JavaScript. It provides hands-on experience with DOM manipulation, user input handling, and game logic while offering an engaging user experience.
