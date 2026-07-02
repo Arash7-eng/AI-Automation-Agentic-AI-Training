@@ -1,109 +1,300 @@
 # 🌤️ AI Weather Detection & Email Notification using n8n
 
-## 📌 Overview
-
-This project is an automated weather notification system built with n8n.
-
-The workflow runs automatically every day using the Schedule Trigger, fetches real-time weather data from the OpenWeatherMap API, checks the weather condition, and sends an email notification through Gmail.
+An intelligent workflow automation project built with **n8n** that automatically monitors real-time weather conditions using the **OpenWeatherMap API** and sends personalized email notifications through **Gmail**. The workflow runs on a predefined schedule, analyzes weather conditions, and delivers either a weather alert or a daily weather report without requiring any manual intervention.
 
 ---
 
-## 🚀 Features
+# 📖 Project Overview
 
-- Automatic daily weather check
-- Real-time weather data using OpenWeatherMap API
-- Scheduled execution
-- Weather condition detection
-- Rain alert notifications
-- Daily weather reports
-- Gmail integration
-- No manual intervention required
+The **AI Weather Detection & Email Notification** system is designed to automate weather monitoring and email communication.
 
----
+Every day at a scheduled time, the workflow retrieves live weather information for a specified location using the OpenWeatherMap API. It processes the received weather data, evaluates the current weather condition, and automatically sends an email notification based on the result.
 
-## 🛠 Technologies Used
+If rain is detected, the workflow sends a **Rain Alert** email. Otherwise, it sends a **Daily Weather Report** containing detailed weather information including temperature, humidity, wind speed, and weather description.
 
-- n8n
-- OpenWeatherMap API
-- Gmail
-- HTTP Request
-- Schedule Trigger
-- IF Node
-- Edit Fields Node
+This project demonstrates how API integration, workflow automation, conditional logic, and email services can be combined to build practical real-world automation solutions using n8n.
 
 ---
 
-## 📊 Workflow
+# 🚀 Key Features
 
-Schedule Trigger
-⬇
-HTTP Request (Weather API)
-⬇
-Edit Fields
-⬇
-IF (Rain?)
-├── Yes → Gmail (Rain Alert)
-└── No → Gmail (Daily Weather Report)
+- 🌦 Automatic daily weather monitoring
+- ⏰ Scheduled workflow execution
+- 🌍 Real-time weather data retrieval
+- 🔗 OpenWeatherMap API integration
+- 📧 Automated Gmail notifications
+- ☔ Rain alert detection
+- 🌤 Daily weather reporting
+- 🌡 Temperature monitoring
+- 💧 Humidity tracking
+- 🌬 Wind speed reporting
+- 🔀 Conditional workflow using IF Node
+- ⚡ Fully automated with no manual intervention
 
 ---
 
-## ⚙️ Workflow Steps
+# 🛠 Technologies Used
 
-### 1. Schedule Trigger
-Runs automatically every day at the configured time.
+| Technology | Purpose |
+|------------|---------|
+| n8n | Workflow Automation Platform |
+| OpenWeatherMap API | Live Weather Data |
+| Gmail | Email Notifications |
+| HTTP Request Node | API Communication |
+| Schedule Trigger | Automatic Execution |
+| Edit Fields (Set) Node | Data Extraction |
+| IF Node | Weather Condition Check |
+| Gmail Node | Sending Automated Emails |
 
-### 2. HTTP Request
-Fetches live weather information from OpenWeatherMap.
+---
 
-### 3. Edit Fields
-Extracts:
-- City
-- Weather
+# 📂 Workflow Architecture
+
+```text
+                 Schedule Trigger
+                        │
+                        ▼
+        HTTP Request (OpenWeatherMap API)
+                        │
+                        ▼
+            Edit Fields (Extract Data)
+                        │
+                        ▼
+          IF (Weather == "Rain"?)
+                │               │
+          Yes   ▼               ▼ No
+      Gmail (Rain Alert)   Gmail (Daily Report)
+```
+
+---
+
+# ⚙️ Workflow Explanation
+
+## 1️⃣ Schedule Trigger
+
+The workflow starts automatically every day at the configured time.
+
+**Purpose**
+
+- Eliminates manual execution
+- Runs automatically every day
+- Supports scheduled monitoring
+
+---
+
+## 2️⃣ HTTP Request
+
+The HTTP Request node fetches live weather information from the OpenWeatherMap API.
+
+The request retrieves:
+
+- City Name
 - Temperature
 - Humidity
 - Wind Speed
-- Description
+- Weather Condition
+- Weather Description
 
-### 4. IF Node
-Checks whether the weather condition is Rain.
+Example API:
 
-### 5. Gmail
-Sends either:
-- Rain Alert
-- Daily Weather Report
+```
+GET https://api.openweathermap.org/data/2.5/weather
+```
 
 ---
 
-## 📧 Example Email
+## 3️⃣ Edit Fields (Set Node)
 
-Subject:
-🌤️ Daily Weather Report
+This node extracts only the required information from the API response.
 
-Body:
+Mapped fields:
+
 - City
 - Weather
+- Description
 - Temperature
 - Humidity
 - Wind Speed
-- Description
+
+This makes the data easier to use in later workflow steps.
 
 ---
 
-## 🎯 Learning Outcomes
+## 4️⃣ IF Node
 
-- API Integration
-- HTTP Request Node
-- Schedule Automation
-- Conditional Logic
+The IF node evaluates the weather condition.
+
+Condition:
+
+```
+Weather == Rain
+```
+
+### True
+
+Send Rain Alert Email
+
+### False
+
+Send Daily Weather Report
+
+---
+
+## 5️⃣ Gmail Node
+
+Automatically sends a customized email to the recipient.
+
+### Rain Alert
+
+Subject
+
+```
+🌧️ Weather Alert: Rain Expected Today
+```
+
+The email advises users to carry an umbrella and provides current weather details.
+
+---
+
+### Daily Weather Report
+
+Subject
+
+```
+🌤️ Today's Weather Report
+```
+
+The email contains:
+
+- City
+- Temperature
+- Humidity
+- Weather
+- Description
+- Wind Speed
+
+---
+
+# 📧 Sample Email
+
+## Subject
+
+```
+🌤️ Today's Weather Report
+```
+
+## Email Content
+
+```
+City: Ludhiana
+
+Weather: Clouds
+
+Temperature: 31°C
+
+Humidity: 68%
+
+Wind Speed: 4.2 m/s
+
+Description:
+Broken Clouds
+
+Have a wonderful day!
+
+AI Weather Detection System
+```
+
+---
+
+# 🎯 Learning Outcomes
+
+Through this project, I learned:
+
+- Workflow Automation with n8n
+- REST API Integration
+- HTTP Request Configuration
+- JSON Data Processing
+- Conditional Logic using IF Nodes
+- Scheduled Workflow Execution
 - Gmail Automation
-- JSON Data Handling
-- Workflow Design
-- No-Code Automation
+- Dynamic Data Mapping
+- Real-Time API Communication
+- Automation Best Practices
 
 ---
 
-## 👨‍💻 Author
+# 💡 Project Highlights
 
-Arashpreet Kaur
-Computer Science Engineering Student
+✅ Fully Automated Workflow
+
+✅ Real-Time Weather Monitoring
+
+✅ API-Based Automation
+
+✅ Conditional Decision Making
+
+✅ Email Notification System
+
+✅ Beginner-Friendly n8n Project
+
+✅ Real-World Automation Use Case
+
+---
+
+# 📁 Project Structure
+
+```
+AI-Weather-Detection/
+│
+├── README.md
+├── workflow.json
+├── screenshots/
+│   ├── workflow-overview.png
+│   ├── schedule-trigger.png
+│   ├── http-request.png
+│   ├── edit-fields.png
+│   ├── if-node.png
+│   ├── gmail-node.png
+│   └── email-output.png
+└── assets/
+```
+
+---
+
+# 🔮 Future Improvements
+
+- Support multiple cities
+- Weather forecast for upcoming days
+- Severe weather alerts
+- SMS notifications
+- Telegram integration
+- Slack notifications
+- Microsoft Teams integration
+- Weather dashboard
+- AI-generated weather recommendations
+- Multi-language email support
+
+---
+
+# 👨‍💻 Author
+
+**Arashpreet Kaur**
+
+Computer Science & Engineering Student
+
 Guru Nanak Dev Engineering College, Ludhiana
+
+### Skills
+
+- Python
+- C++
+- Linux
+- HTML
+- CSS
+- n8n Automation
+- REST APIs
+- Workflow Automation
+
+---
+
+# ⭐ If you found this project useful, consider giving it a star!
