@@ -256,5 +256,253 @@ Through this project, I learned:
 - Multi-language email support
 
 ---
+# 📰 AI News Summary Assistant using n8n
 
+An intelligent workflow automation project built with **n8n** that automatically fetches the latest news using the **NewsAPI**, summarizes each article with an **AI Agent**, and delivers a professional news summary via **Gmail**.
+
+The workflow executes automatically on a schedule, retrieves the latest headlines, extracts the required information, generates an AI-powered summary, and sends a formatted email without any manual intervention.
+
+---
+
+# 📖 Project Overview
+
+The **AI News Summary Assistant** automates the process of reading and summarizing news.
+
+At a scheduled time, the workflow retrieves the latest news articles from NewsAPI. It extracts essential details such as the title, description, source, author, publication date, and article URL. The extracted content is then analyzed by an AI Agent, which generates a concise, well-structured summary highlighting the key points and explaining why the news is important.
+
+Finally, the workflow automatically sends the AI-generated news summary to the recipient via Gmail.
+
+This project demonstrates how workflow automation, REST APIs, AI, and email services can be integrated to build a practical real-world automation solution using n8n.
+
+---
+
+# 🚀 Key Features
+
+- 📰 Automatic news retrieval
+- 🤖 AI-powered news summarization
+- ⏰ Scheduled workflow execution
+- 🌐 NewsAPI integration
+- 📧 Automated Gmail notifications
+- ✍️ Concise and professional summaries
+- 🔑 Key highlights extraction
+- 💡 Importance analysis
+- 🔗 Article source and URL included
+- ⚡ Fully automated workflow
+
+---
+
+# 🛠 Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| n8n | Workflow Automation |
+| NewsAPI | Latest News Retrieval |
+| AI Agent | News Summarization |
+| HTTP Request Node | API Communication |
+| Edit Fields Node | Data Extraction |
+| Schedule Trigger | Automatic Execution |
+| Gmail | Email Notifications |
+
+---
+
+# 📂 Workflow Architecture
+
+```text
+                 Schedule Trigger
+                        │
+                        ▼
+          HTTP Request (NewsAPI)
+                        │
+                        ▼
+           Edit Fields (Extract Data)
+                        │
+                        ▼
+          AI Agent (Generate Summary)
+                        │
+                        ▼
+              Gmail (Send Email)
+```
+
+---
+
+# ⚙️ Workflow Explanation
+
+## 1️⃣ Schedule Trigger
+
+Starts the workflow automatically at the configured time.
+
+**Purpose**
+
+- Fully automated execution
+- Daily news monitoring
+- No manual intervention
+
+---
+
+## 2️⃣ HTTP Request
+
+Fetches the latest news articles from NewsAPI.
+
+Retrieved information:
+
+- Title
+- Description
+- Source
+- Author
+- Published Date
+- Article URL
+
+---
+
+## 3️⃣ Edit Fields
+
+Extracts only the required information from the NewsAPI response.
+
+Mapped fields:
+
+- Title
+- Description
+- Source
+- Author
+- Published Date
+- URL
+
+This keeps the workflow clean and organized.
+
+---
+
+## 4️⃣ AI Agent
+
+Analyzes the news article and generates:
+
+- Professional summary
+- Three key highlights
+- Why the news matters
+- Read More link
+
+---
+
+## 5️⃣ Gmail Node
+
+Automatically sends the summarized news via email.
+
+The email includes:
+
+- News Headline
+- AI Summary
+- Key Highlights
+- Importance
+- Source
+- Read More URL
+
+---
+
+# 📧 Sample Email
+
+### Subject
+
+```
+📰 Daily AI News Summary
+```
+
+### Email Content
+
+```
+📰 Headline:
+Microsoft's Xbox Pulls Out of Project Fantasy Video Game
+
+📝 Summary:
+Microsoft has withdrawn from its partnership with IO Interactive on Project Fantasy. The AI-generated summary explains the key developments and their significance.
+
+🔑 Key Highlights:
+• Xbox ended its publishing partnership.
+• IO Interactive continues development.
+• Future publishing plans remain uncertain.
+
+💡 Why It Matters:
+This reflects changing business strategies in the gaming industry and may affect the project's future.
+
+🌐 Source:
+Bloomberg
+
+🔗 Read More:
+https://example.com
+```
+
+---
+
+# 🎯 Learning Outcomes
+
+Through this project, I learned:
+
+- Workflow Automation with n8n
+- REST API Integration
+- HTTP Request Configuration
+- JSON Data Processing
+- AI Agent Integration
+- Prompt Engineering
+- Gmail Automation
+- Dynamic Data Mapping
+- Automated Email Notifications
+- Real-Time API Communication
+
+---
+
+# 💡 Project Highlights
+
+- ✅ AI-Powered News Summarization
+- ✅ Fully Automated Workflow
+- ✅ Real-Time News Retrieval
+- ✅ NewsAPI Integration
+- ✅ Gmail Notification System
+- ✅ Professional Email Formatting
+- ✅ Beginner-Friendly n8n Project
+- ✅ Real-World Automation Use Case
+
+---
+
+# 📸 Project Screenshots
+
+## Workflow
+
+![Workflow](images/workflow-diagram.png)
+
+## HTTP Request Node
+
+![HTTP Request](images/http-request-node.png)
+
+## Edit Fields Node
+
+![Edit Fields](images/edit-fields-node.png)
+
+## AI Agent
+
+![AI Agent](images/ai-agent-node.png)
+
+## Gmail Node
+
+![Gmail Node](images/gmail-node.png)
+
+## Email Output
+
+![Email Output](images/gmail-output.png)
+
+---
+
+# 🔮 Future Improvements
+
+- Multiple news categories
+- Keyword-based filtering
+- AI sentiment analysis
+- Multi-language summaries
+- Telegram notifications
+- Slack integration
+- Microsoft Teams integration
+- Google Sheets logging
+- Daily PDF news reports
+- Personalized news recommendations
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star!
 
