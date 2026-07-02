@@ -239,25 +239,6 @@ Through this project, I learned:
 
 ✅ Real-World Automation Use Case
 
----
-
-# 📁 Project Structure
-
-```
-AI-Weather-Detection/
-│
-├── README.md
-├── workflow.json
-├── screenshots/
-│   ├── workflow-overview.png
-│   ├── schedule-trigger.png
-│   ├── http-request.png
-│   ├── edit-fields.png
-│   ├── if-node.png
-│   ├── gmail-node.png
-│   └── email-output.png
-└── assets/
-```
 
 ---
 
@@ -276,25 +257,4 @@ AI-Weather-Detection/
 
 ---
 
-# 👨‍💻 Author
 
-**Arashpreet Kaur**
-
-Computer Science & Engineering Student
-
-Guru Nanak Dev Engineering College, Ludhiana
-
-### Skills
-
-- Python
-- C++
-- Linux
-- HTML
-- CSS
-- n8n Automation
-- REST APIs
-- Workflow Automation
-
----
-
-# ⭐ If you found this project useful, consider giving it a star!
