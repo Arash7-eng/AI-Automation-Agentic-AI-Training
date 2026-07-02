@@ -460,35 +460,6 @@ Through this project, I learned:
 - ✅ Real-World Automation Use Case
 
 ---
-
-# 📸 Project Screenshots
-
-## Workflow
-
-![Workflow](images/workflow-diagram.png)
-
-## HTTP Request Node
-
-![HTTP Request](images/http-request-node.png)
-
-## Edit Fields Node
-
-![Edit Fields](images/edit-fields-node.png)
-
-## AI Agent
-
-![AI Agent](images/ai-agent-node.png)
-
-## Gmail Node
-
-![Gmail Node](images/gmail-node.png)
-
-## Email Output
-
-![Email Output](images/gmail-output.png)
-
----
-
 # 🔮 Future Improvements
 
 - Multiple news categories
