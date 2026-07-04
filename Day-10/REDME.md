@@ -24,8 +24,6 @@ Schedule Trigger
 ↓
 HTTP Request
 ↓
-Edit Fields
-↓
 Google Gemini AI Agent
 ↓
 Gmail
@@ -54,24 +52,7 @@ Retrieves the latest job listings from the Job API.
 
 ---
 
-## Step 3 – Edit Fields
-
-Extracts only the required job information before sending it to AI.
-
-**Fields**
-
-- Job Title
-- Company
-- Location
-- Employment Type
-- Salary
-- Description
-- Apply Link
-- Date
-
----
-
-## Step 4 – Google Gemini AI Agent
+## Step 3 – Google Gemini AI Agent
 
 Analyzes all retrieved jobs and generates a professional report.
 
@@ -84,7 +65,7 @@ Analyzes all retrieved jobs and generates a professional report.
 
 ---
 
-## Step 5 – Gmail
+## Step 4 – Gmail
 
 Automatically sends the summarized job report.
 
@@ -132,8 +113,6 @@ Schedule Trigger
 ↓
 HTTP Request
 ↓
-Edit Fields
-↓
 Google Gemini AI Agent
 ↓
 Gmail
@@ -169,25 +148,7 @@ Fetches the transcript and video information.
 
 ---
 
-## Step 3 – Edit Fields
-
-Organizes the video data before passing it to AI.
-
-**Fields**
-
-- Video Title
-- Channel Name
-- Description
-- Transcript
-- Video URL
-- Thumbnail
-- Duration
-- Views
-- Summary Date
-
----
-
-## Step 4 – Google Gemini AI Agent
+## Step 3 – Google Gemini AI Agent
 
 Analyzes the transcript and creates a concise summary.
 
@@ -201,7 +162,7 @@ Analyzes the transcript and creates a concise summary.
 
 ---
 
-## Step 5 – Gmail
+## Step 4– Gmail
 
 Sends the final AI-generated summary via email.
 
