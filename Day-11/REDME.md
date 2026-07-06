@@ -262,5 +262,3 @@ artificial-intelligence
 low-code
 no-code
 ```
-
----
