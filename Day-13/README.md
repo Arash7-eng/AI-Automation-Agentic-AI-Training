@@ -47,7 +47,7 @@ Throughout this project, I gained practical experience in:
 
 | Google Antigravity IDE | AI Study Tutor |
 |-------------------------|----------------|
-| ![Antigravity IDE](images/antigravity-setup.png) | ![AI Study Tutor](images/ai-study-tutor.png) |
+| ![Antigravity IDE](images/antigravity-setup.png) | ![AI Study Tutor](images/Day-13/ai-study-tutor.png.jpeg) |
 
 > **Note:** Replace the image paths with the actual images stored in your repository.
 
