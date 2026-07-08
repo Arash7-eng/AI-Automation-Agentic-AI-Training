@@ -30,7 +30,7 @@ After setting up the IDE, I built an **AI Study Tutor** web application using **
 
 | Antigravity IDE Setup | AI Study Tutor |
 |------------------------|----------------|
-| ![Antigravity IDE](images/antigravity-setup.png) | ![AI Study Tutor](images/ai-study-tutor.png) |
+| ![Antigravity IDE](images/antigravity-setup.png) | ![AI Study Tutor](images/"C:\Users\abc\OneDrive\画像\ai-study-tutor.png.jpeg") |
 
 ## 🎯 Next Steps
 - Add chat history
