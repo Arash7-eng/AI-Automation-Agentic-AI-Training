@@ -1,44 +1,75 @@
-# 📅 Day 13 – Exploring Google Antigravity IDE & Building an AI Study Tutor
+# 📅 Day 13 – Building an AI Study Tutor with Google Antigravity IDE
 
-Today, I installed and explored **Google Antigravity IDE**, an AI-powered development environment that simplifies coding with intelligent code generation and assistance. I learned how to navigate the IDE, use AI prompts to generate code, and understand how AI can speed up the web development workflow.
+## 📌 Overview
 
-After setting up the IDE, I built an **AI Study Tutor** web application using **HTML, CSS, JavaScript, and the Google Gemini API**. The application allows users to ask study-related questions and receive AI-generated explanations in simple English. Each response is structured with a clear explanation, a real-life example, and a short quiz question to make learning more interactive.
+Today, I explored **Google Antigravity IDE**, an AI-powered development environment that enhances productivity through intelligent code generation and AI-assisted development. After successfully installing and configuring the IDE, I familiarized myself with its workflow and leveraged its capabilities to accelerate the development process.
 
-## 🚀 Features
+To apply what I learned, I built an **AI Study Tutor**—a web application designed to help students understand concepts through AI-generated explanations. The application provides concise answers, practical examples, and quiz questions to create a more engaging and interactive learning experience.
+
+---
+
+## 🚀 Project Highlights
+
 - 🤖 AI-powered study assistant
-- 📚 Simple and beginner-friendly explanations
-- 💡 Real-life examples for better understanding
-- ❓ Quiz question after every response
-- 🎨 Modern dark-themed responsive UI
-- ⚡ Fast AI-generated responses using Gemini API
+- 💬 Ask questions in natural language
+- 📖 Simple and beginner-friendly explanations
+- 💡 Real-world examples for better understanding
+- ❓ Auto-generated quiz question after every response
+- 🎨 Modern, responsive dark-themed user interface
+- ⚡ Fast AI responses powered by the Google Gemini API
 
-## 🛠️ Technologies Used
+---
+
+## 🛠️ Tech Stack
+
 - HTML5
 - CSS3
 - JavaScript (ES6)
 - Google Gemini API
 - Google Antigravity IDE
 
-## 📖 What I Learned
-- Installing and setting up Google Antigravity IDE
-- Using AI-assisted development to build applications faster
+---
+
+## 📚 Key Learnings
+
+Throughout this project, I gained practical experience in:
+
+- Installing and configuring Google Antigravity IDE
+- Using AI-assisted coding to improve development efficiency
 - Integrating the Google Gemini API into a web application
 - Designing a clean and responsive user interface
 - Writing effective prompts for better AI-generated responses
+- Building a real-world AI-powered educational application
+
+---
 
 ## 📸 Project Preview
 
-| Antigravity IDE Setup | AI Study Tutor |
-|------------------------|----------------|
-| ![Antigravity IDE](images/antigravity-setup.png) | ![AI Study Tutor](images/"C:\Users\abc\OneDrive\画像\ai-study-tutor.png.jpeg") |
+| Google Antigravity IDE | AI Study Tutor |
+|-------------------------|----------------|
+| ![Antigravity IDE](images/antigravity-setup.png) | ![AI Study Tutor](images/ai-study-tutor.png) |
 
-## 🎯 Next Steps
-- Add chat history
-- Improve response formatting with Markdown
-- Add loading animation
-- Enable Enter key to submit questions
-- Add copy response button
-- Deploy the application online
+> **Note:** Replace the image paths with the actual images stored in your repository.
 
 ---
-⭐ *Learning AI-assisted development one project at a time!*
+
+## 🎯 Future Improvements
+
+- 💾 Save chat history
+- 📝 Support Markdown formatting
+- ⏳ Add a loading animation
+- ⌨️ Enable Enter key to submit questions
+- 📋 Add a one-click Copy Response feature
+- ☁️ Deploy the application online
+
+---
+
+## 🌟 Reflection
+
+This project strengthened my understanding of AI-assisted software development and demonstrated how modern development tools like **Google Antigravity IDE** can significantly improve productivity. Building the AI Study Tutor also provided valuable hands-on experience in integrating generative AI into web applications while focusing on user experience and responsive design.
+
+---
+
+**⭐ Thank you for visiting this project! Feel free to explore the code, share feedback, or contribute.**
+
+**#100DaysOfCode #GoogleAntigravity #GeminiAPI #JavaScript #HTML #CSS #AI #WebDevelopment #OpenSource #BuildInPublic**
