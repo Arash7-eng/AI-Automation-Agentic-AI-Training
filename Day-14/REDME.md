@@ -1,40 +1,158 @@
-# 🤖 Day 14 – Multi-Agent Website Development Using Google Antigravity
+# 🤖 Day 14 – AI-Powered Multi-Agent Development, Customer Support Agent & Text-to-Speech
 
-# 📌 Project Overview
+## 📌 Project Overview
 
-The **Multi-Agent Website Development** project demonstrates how multiple Artificial Intelligence (AI) agents can collaborate to design, develop, test, and deploy a complete web application. Instead of relying on a single AI assistant to perform every task, this system assigns specialized responsibilities to different AI agents. Each agent focuses on a specific phase of the software development lifecycle, resulting in a more organized, efficient, and scalable workflow.
+Day 14 focused on exploring multiple Artificial Intelligence applications using **Google Antigravity** and **ElevenLabs**. Instead of building a single application, I worked on three different AI-powered projects to understand how AI can assist in software development, customer service, and voice generation.
 
-This project was created using **Google Antigravity** and **Google Gemini**, which enable intelligent task automation through natural language prompts. Every AI agent receives a dedicated responsibility and works independently while contributing to the overall project. This collaborative approach closely resembles how real software development teams operate, where project managers, designers, developers, testers, and deployment engineers work together to build high-quality applications.
+The first project was a **Multi-Agent Website Development System** created with Google Antigravity. In this project, multiple AI agents collaborated to perform different software development tasks such as planning, UI/UX design, frontend development, backend architecture, database design, API integration, testing, and deployment. Each AI agent handled a specific responsibility, making the development process organized and efficient.
 
-The project begins with gathering user requirements. The **Project Manager Agent** analyzes the user's needs and creates a structured development roadmap. After planning is complete, the **UI/UX Designer Agent** designs the application's interface, including layouts, navigation, color schemes, typography, and user experience recommendations.
+The second project involved **ElevenLabs Text-to-Speech**, where I converted written stories into natural-sounding speech using AI voice models. I experimented with voice settings including speed, stability, and different voices to generate realistic narration.
 
-The **Frontend Development Agent** transforms the design into responsive web pages using HTML, CSS, and JavaScript. It ensures that the application is visually appealing and compatible across desktop, tablet, and mobile devices. Simultaneously, the **Backend Development Agent** builds the server-side architecture using Node.js and Express.js. It creates APIs, handles authentication, processes business logic, and manages communication between the frontend and database.
+The final project was an **AI Customer Support Agent** developed using ElevenLabs Agents. I created a custom Knowledge Base containing customer support information and tested the chatbot with different customer queries related to billing, refunds, subscriptions, account management, and technical support.
 
-The **Database Design Agent** is responsible for designing the application's database structure using MongoDB. It creates collections, defines relationships, and ensures efficient data storage and retrieval. Once the backend is complete, the **API Integration Agent** connects the frontend with backend services, enabling real-time communication between users and the server.
-
-To ensure software reliability, the **Software Testing and Quality Assurance Agent** performs functional testing, API validation, error handling verification, and user interface testing. It identifies bugs, validates workflows, and suggests improvements before deployment.
-
-Finally, the **Deployment Agent** prepares the application for production by configuring environment variables, organizing project files, and providing deployment instructions for cloud platforms. The result is a complete AI-assisted software development pipeline that automates many repetitive development tasks while improving consistency and productivity.
+Through these projects, I gained practical experience in AI automation, prompt engineering, conversational AI, speech synthesis, and multi-agent collaboration.
 
 ---
 
-# 🚀 Features
+# 🚀 Project 1 – Multi-Agent Website Development
 
-- AI-powered project planning
-- Requirement analysis
-- Website architecture planning
-- UI/UX design recommendations
-- Responsive frontend development
-- Backend API development
-- MongoDB database design
-- REST API integration
-- Software testing and quality assurance
-- Deployment planning
-- Error handling validation
-- Code organization
-- Documentation generation
-- Multi-agent collaboration
-- AI-assisted software development workflow
+## Description
+
+This project demonstrates how multiple AI agents can collaborate to build a complete website. Instead of using one AI assistant for every task, separate AI agents were assigned specialized responsibilities.
+
+Each agent focused on a different stage of software development, improving task organization and making the workflow similar to a real software development team.
+
+### Responsibilities of AI Agents
+
+### 📋 Project Planning Agent
+
+The Planning Agent collected project requirements and created a complete roadmap for development. It defined the project scope, milestones, timelines, and suggested the technologies required to build the application.
+
+### 🎨 UI/UX Design Agent
+
+This agent generated recommendations for responsive layouts, color schemes, typography, navigation menus, and user experience improvements. It focused on making the application visually attractive and user-friendly.
+
+### 💻 Frontend Development Agent
+
+The Frontend Agent developed responsive user interfaces using HTML, CSS, and JavaScript. It ensured proper page layouts, responsive design, and interactive user experience.
+
+### ⚙️ Backend Development Agent
+
+The Backend Agent designed the server architecture using Node.js and Express.js. It handled business logic, authentication, routing, and communication with the database.
+
+### 🗄️ Database Design Agent
+
+This agent created MongoDB collections, relationships, schemas, and optimized database structure for efficient data storage and retrieval.
+
+### 🔗 API Integration Agent
+
+The API Agent connected frontend components with backend services using REST APIs. It verified request handling, response generation, and data synchronization.
+
+### 🧪 Software Testing Agent
+
+The Testing Agent reviewed the application, identified bugs, validated APIs, checked error handling, and generated quality assurance reports to improve reliability.
+
+### 🚀 Deployment Agent
+
+The Deployment Agent prepared the application for production by organizing files, configuring environment variables, and suggesting deployment strategies.
+
+---
+
+# 🎙️ Project 2 – AI Text-to-Speech
+
+## Description
+
+The Text-to-Speech project demonstrates how Artificial Intelligence can convert written text into realistic human speech.
+
+Using ElevenLabs, I entered story content and generated high-quality voice narration using advanced AI voice models. Different voice settings were explored to improve pronunciation, clarity, and natural expression.
+
+This technology is widely used in podcasts, audiobooks, educational content, accessibility tools, virtual assistants, and content creation.
+
+### Features
+
+- Convert text into speech
+- Natural AI voices
+- Adjustable speech speed
+- Voice stability control
+- Story narration
+- High-quality audio generation
+- Multiple voice options
+
+### Learning
+
+Through this project, I learned how modern AI voice synthesis works and how different voice parameters affect the generated speech.
+
+---
+
+# 💬 Project 3 – AI Customer Support Agent
+
+## Description
+
+The Customer Support Agent was developed using ElevenLabs Agents.
+
+A custom Knowledge Base was created containing common customer support information. The AI agent retrieves relevant information and answers customer questions naturally through text and voice conversations.
+
+The chatbot was designed to reduce manual customer support effort by providing quick and consistent responses.
+
+### Knowledge Base Included
+
+- Account Management
+- Password Reset
+- Billing Support
+- Refund Policy
+- Subscription Plans
+- Technical Support
+- Payment Issues
+- Frequently Asked Questions
+
+### Example Questions
+
+- How do I reset my password?
+- How can I request a refund?
+- My payment failed.
+- How do I cancel my subscription?
+- I forgot my login credentials.
+- Where can I contact customer support?
+
+### Learning
+
+This project helped me understand Retrieval-Augmented Generation (RAG), conversational AI, knowledge base management, and prompt engineering.
+
+---
+
+# ✨ Key Features
+
+### Google Antigravity
+
+- Multi-Agent Collaboration
+- AI Project Planning
+- Website Architecture
+- Frontend Development
+- Backend Development
+- Database Design
+- API Integration
+- Software Testing
+- Deployment Planning
+
+### ElevenLabs Text-to-Speech
+
+- AI Voice Generation
+- Human-like Speech
+- Voice Selection
+- Story Narration
+- Adjustable Speed
+- Stability Controls
+
+### Customer Support Agent
+
+- AI Chatbot
+- Knowledge Base Integration
+- Voice Support
+- Text Support
+- Billing Assistance
+- Refund Support
+- Subscription Management
+- Technical Support
 
 ---
 
@@ -42,72 +160,31 @@ Finally, the **Deployment Agent** prepares the application for production by con
 
 - Google Antigravity
 - Google Gemini
-- HTML5
-- CSS3
+- ElevenLabs
+- ElevenLabs Agents
+- Artificial Intelligence
+- Text-to-Speech
+- Natural Language Processing
+- HTML
+- CSS
 - JavaScript
 - Node.js
 - Express.js
 - MongoDB
-- REST API
-- Artificial Intelligence
-- Multi-Agent Systems
+- REST APIs
 
----
-
-# 👥 AI Agents Used
-
-### 1. Project Manager Agent
-Analyzes project requirements, creates a development roadmap, prioritizes tasks, and coordinates the overall workflow.
-
-### 2. UI/UX Designer Agent
-Designs responsive user interfaces, page layouts, navigation systems, typography, and visual styling.
-
-### 3. Frontend Developer Agent
-Develops responsive web pages using HTML, CSS, and JavaScript while ensuring cross-device compatibility.
-
-### 4. Backend Developer Agent
-Builds REST APIs, authentication systems, server-side logic, and integrates backend services.
-
-### 5. Database Designer Agent
-Creates MongoDB collections, database schemas, relationships, and optimizes data storage.
-
-### 6. API Integration Agent
-Connects frontend components with backend APIs and validates request-response communication.
-
-### 7. Software Testing & QA Agent
-Performs application testing, validates APIs, identifies bugs, improves error handling, and ensures software quality.
-
-### 8. Deployment Agent
-Prepares the application for production deployment and provides deployment instructions.
 ---
 
 # 📚 Learning Outcomes
 
-During this project, I learned how multiple AI agents can collaborate to automate the complete software development lifecycle. Instead of depending on a single AI assistant, specialized agents performed independent tasks such as project planning, interface design, backend development, database creation, API integration, testing, and deployment.
+By completing these projects, I gained practical knowledge of AI-powered software development and automation. I learned how multiple AI agents can work together to complete complex development tasks efficiently. I also explored AI voice synthesis, prompt engineering, conversational AI, customer support automation, and knowledge retrieval systems.
 
-I gained practical knowledge of AI-assisted software engineering and understood how different development phases connect to produce a fully functional application. I also learned the importance of structured planning, modular development, quality assurance, and deployment strategies while working with modern AI development tools.
-
-The project improved my understanding of software architecture, AI automation, collaborative workflows, and full-stack web development concepts.
-
----
-
-# 🎯 Benefits
-
-- Faster development process
-- Better task organization
-- Improved code quality
-- Reduced manual effort
-- Scalable architecture
-- Better software testing
-- Faster debugging
-- Automated documentation
-- Enhanced productivity
-- AI-assisted decision making
+These projects strengthened my understanding of modern AI technologies and demonstrated how they can improve productivity, reduce manual effort, and simplify software development.
 
 ---
 
 # 📌 Conclusion
 
-The **Multi-Agent Website Development** project demonstrates the potential of Artificial Intelligence in modern software engineering. By assigning different responsibilities to specialized AI agents, the entire website development process becomes more efficient, structured, and collaborative. From planning and design to coding, testing, and deployment, each AI agent contributes to building a complete web application while maintaining high quality and consistency.
+Day 14 provided hands-on experience with three different AI applications. Google Antigravity demonstrated how AI agents can collaborate to automate software development, while ElevenLabs showcased realistic voice synthesis and conversational AI through Text-to-Speech and Customer Support Agent projects.
 
-This project showcases how Google Antigravity and Google Gemini can simplify complex software development tasks, reduce development time, and improve overall productivity. It also highlights the future of AI-assisted software engineering, where intelligent agents collaborate to solve real-world development challenges more effectively.
+Together, these projects highlighted the practical use of Artificial Intelligence in web development, customer service, and content creation. They also improved my understanding of AI workflows, prompt engineering, automation, and intelligent application development.
