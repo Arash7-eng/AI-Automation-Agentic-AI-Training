@@ -2,60 +2,106 @@
 
 ## 📌 Overview
 
-Today, I explored **ElevenLabs AI Agents** and built an **AI-powered Customer Support Agent** capable of handling customer queries through natural conversations. I configured the agent, customized its behavior and voice settings, and tested multiple customer support scenarios such as failed payments and refund requests.
+On Day 15 of my **AI & Automation Challenge**, I built an **AI Customer Support Agent** using **ElevenLabs AI Agents**. The agent is designed to provide fast, accurate, and human-like responses to customer queries using a structured knowledge base, customizable prompts, and conversational AI capabilities. ElevenLabs supports creating voice and chat agents with custom knowledge bases, system prompts, and configurable voices. :contentReference[oaicite:0]{index=0}
 
 ---
 
-## 🚀 What I Learned
+## 🚀 Project Objective
 
-- Creating AI agents using **ElevenLabs**
-- Designing conversational workflows
-- Prompt engineering for customer support
-- Configuring voice settings
-- Testing AI responses in real time
-- Managing conversation history
-- Building human-like AI interactions
+The goal of this project was to create an AI assistant capable of:
+
+- Answering customer support queries
+- Handling payment-related issues
+- Assisting with refund requests
+- Solving login and account problems
+- Guiding users with subscription-related questions
+- Escalating complex issues to human support when necessary
 
 ---
 
 ## 🛠️ Technologies Used
 
 - ElevenLabs AI Agents
-- Voice AI
 - Conversational AI
+- Voice AI
 - Prompt Engineering
-- AI Customer Support Automation
+- Knowledge Base Design
 
 ---
 
-## ✨ Key Features
+## 📚 Knowledge Base Implemented
 
-- 🤖 AI-powered customer support assistant
-- 🎤 Voice-enabled conversations
-- 💬 Real-time chat interface
-- 📝 Conversation history tracking
-- 💳 Handles payment-related queries
-- 💰 Supports refund request conversations
-- ⚙️ Customizable prompts and voice settings
+The AI agent was trained with a custom knowledge base covering:
+
+### 💳 Payment Support
+- Failed payments
+- Transaction verification
+- Payment troubleshooting
+- Billing assistance
+
+### 💰 Refund Support
+- Refund eligibility
+- Refund processing steps
+- Refund timelines
+- Escalation process
+
+### 👤 Account Support
+- Login issues
+- Password reset guidance
+- Email verification
+- Browser troubleshooting
+
+### 📦 Subscription Support
+- Upgrade plans
+- Downgrade plans
+- Cancel subscriptions
+- Renew subscriptions
+
+### 📞 Escalation Rules
+- Payment not reflected
+- Refund delays
+- Technical issues
+- Human support requests
+
+---
+
+## ✨ Features
+
+- 🤖 AI-powered customer support
+- 🎤 Natural voice conversations
+- 💬 Real-time chat responses
+- 📚 Knowledge base integration
+- 📝 Conversation history
+- ⚙️ Custom system prompts
+- 🔄 Context-aware responses
+- 👨‍💼 Human escalation support
 
 ---
 
 ## 🧪 Test Scenarios
 
-- Failed transaction assistance
-- Failed payment refund
-- Bill payment issues
-- General customer support queries
+I tested the AI agent with multiple customer support cases:
+
+- Failed transaction
+- Bill payment issue
+- Refund request
+- Login problem
+- Subscription cancellation
+- General customer inquiries
+
+The agent successfully asked follow-up questions, gathered relevant information, and provided appropriate guidance based on the knowledge base.
 
 ---
 
-## 📚 Key Takeaways
+## 📖 What I Learned
 
-- Learned how AI voice agents work in real-world applications.
-- Improved prompt engineering and conversation design skills.
-- Understood customer support automation using AI.
-- Explored voice AI integration and testing.
-- Gained hands-on experience with conversational AI development.
+- Creating AI customer support agents using ElevenLabs
+- Designing structured knowledge bases
+- Writing effective system prompts
+- Building conversational workflows
+- Improving AI response quality through prompt engineering
+- Testing real-time AI conversations
+- Understanding customer support automation with AI
 
 ---
 
@@ -65,12 +111,15 @@ Today, I explored **ElevenLabs AI Agents** and built an **AI-powered Customer Su
 - Conversational AI
 - Voice AI
 - Prompt Engineering
+- Knowledge Base Design
 - Customer Support Automation
 - AI Workflow Testing
-- User Experience Design
-
 ---
 
 ## 📌 Conclusion
 
-Day 15 focused on building a real-time **AI Customer Support Agent** using **ElevenLabs**. This project strengthened my understanding of conversational AI, voice-based interactions, and customer support automation while enhancing my practical AI development skills.
+This project gave me hands-on experience in building an intelligent AI Customer Support Agent capable of handling common customer queries using a structured knowledge base. It strengthened my understanding of conversational AI, prompt engineering, and customer support automation. Platforms like ElevenLabs make it possible to create scalable AI agents that provide natural, context-aware assistance across voice and chat channels. :contentReference[oaicite:1]{index=1}
+
+---
+
+### ⭐ If you found this project interesting, don't forget to star the repository!
