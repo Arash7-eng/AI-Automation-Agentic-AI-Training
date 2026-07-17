@@ -163,9 +163,3 @@ This project can be enhanced with additional features such as:
 Day 20 focused on developing **CampusBot**, an AI-powered Student Helpdesk Agent that demonstrates the practical application of prompt engineering and conversational AI in the education sector. By combining a structured system prompt with a modern Google Gemini-inspired interface, the project delivers a user-friendly solution for answering college-related queries. This experience strengthened my understanding of AI assistant design, frontend development, backend integration, and responsible AI practices while creating a portfolio-ready project that showcases real-world problem-solving skills.
 
 ---
-
-### ⭐ Day 20 Completed Successfully
-**Project:** CampusBot – AI Student Helpdesk Agent  
-**Internship:** AI Automation & Agentic AI Internship  
-**Status:** ✅ Completed
-```
