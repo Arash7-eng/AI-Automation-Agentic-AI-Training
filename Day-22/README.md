@@ -1,4 +1,3 @@
-````markdown
 # 🤖 Day 22 – AI Multi-Agent Systems using AutoGen & Python
 
 ## 📌 Overview
