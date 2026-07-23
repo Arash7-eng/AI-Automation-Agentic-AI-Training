@@ -1,7 +1,4 @@
 # 🚀 Day 23 – Meta Developer Setup & Instagram Business API Configuration
-
-> **30 Days of AI Automation & Agentic AI Challenge**
-
 ## 📌 Project Overview
 
 On **Day 23**, I explored the **Meta Developers Platform** and configured an **Instagram Business API** application. The main objective was to understand how Meta Apps, Instagram Business Accounts, permissions, and authentication work before integrating them with automation platforms like **n8n**.
