@@ -1,157 +1,309 @@
-# 🚀 Day 24 – Instagram Graph API, Access Tokens & Webhook Configuration
+# 🚀 Day 24 – Instagram Graph API Automation using n8n
 
 ## 📌 Project Overview
 
-On **Day 24**, I continued working with the **Meta Developers Platform** by exploring the **Instagram Graph API**, generating access tokens, configuring webhook settings, and preparing the project for integration with **n8n**. This phase focused on understanding how Instagram communicates with external applications through APIs and webhooks.
+On **Day 24** of my **AI Automation & Agentic AI Challenge**, I explored how to automate Instagram content publishing using **n8n**, **Google Sheets**, and the **Instagram Graph API**.
+
+The primary objective of this project was to understand how Instagram Business accounts communicate with external applications using REST APIs. I created an automation workflow that reads post information from Google Sheets and sends it to Instagram through HTTP Request nodes.
+
+This project also helped me understand API authentication, JSON data exchange, workflow automation, and social media automation concepts.
+
+Although the complete publishing process still requires additional Meta permissions and production configuration, I successfully implemented the workflow architecture and gained practical experience working with real-world APIs.
 
 ---
 
-## 🎯 Objectives
+# 📖 Problem Statement
 
-- Generate an Instagram Graph API Access Token
-- Explore Graph API endpoints
-- Configure Webhook settings
-- Understand Callback URL and Verify Token
-- Learn API authentication
-- Prepare the project for n8n integration
+Publishing content manually on Instagram consumes time, especially for businesses and creators who post regularly.
 
----
+This project aims to automate the publishing process by integrating:
 
-## 🛠️ Technologies Used
-
-- Meta Developers
+- Google Sheets
 - Instagram Graph API
-- Facebook Graph API
-- Webhooks
-- OAuth Authentication
-- HTTP Requests
-- JSON
-- n8n (Preparation)
+- Meta Developer Platform
+- n8n Automation
+
+The automation reads post data automatically and prepares it for publishing using Instagram's official Graph API.
 
 ---
 
-## 📚 What I Learned
+# 🎯 Objectives
 
-### 1️⃣ Access Token Generation
-
-Located the **Generate Token** option for the connected Instagram Business Account.
-
-**Purpose**
-
-- Authenticate API requests
-- Access Instagram Business data
-- Enable secure communication with external applications
-
----
-
-### 2️⃣ Webhook Configuration
-
-Explored the Webhook configuration page inside Meta Developers.
-
-Configured the following fields:
-
-- Callback URL
-- Verify Token
-- Webhook Subscription
-
-Learned how Meta verifies webhook endpoints before sending real-time events.
+- Learn Instagram Graph API
+- Connect Google Sheets with n8n
+- Configure HTTP Request Nodes
+- Understand Access Tokens
+- Explore Meta Developer Platform
+- Build a Social Media Automation Workflow
+- Understand API Authentication
+- Learn REST API Integration
+- Explore JSON Request and Response
+- Prepare workflow for AI-generated content
 
 ---
 
-### 3️⃣ Understanding Instagram Graph API
+# 🛠 Technologies Used
 
-Studied how the Instagram Graph API allows developers to interact with Instagram Business accounts.
-
-Learned about:
-
-- API Authentication
-- HTTP Requests
-- JSON Responses
-- Access Tokens
-- Event-driven communication
+| Technology | Purpose |
+|------------|---------|
+| n8n | Workflow Automation |
+| Google Sheets | Store Post Data |
+| Instagram Graph API | Publish Instagram Posts |
+| Meta Developers | API Configuration |
+| HTTP Request | API Communication |
+| JSON | Data Exchange |
+| REST API | Instagram Communication |
+| OAuth Authentication | Secure API Access |
 
 ---
 
-### 4️⃣ Automation Workflow Planning
+# 📂 Project Workflow
 
-Designed the architecture for integrating Instagram Business API with n8n.
-
-```text
-Instagram User
+```
+Manual Trigger
       │
       ▼
-Instagram Graph API
+Google Sheets
+(Read Rows)
       │
       ▼
-Meta Webhook
+HTTP Request
+(Create Media Container)
       │
       ▼
-n8n Webhook
+HTTP Request
+(Publish Media)
       │
       ▼
-AI Agent (Gemini/OpenAI)
-      │
-      ▼
-Generate Response
-      │
-      ▼
-Instagram User
+Instagram Business Account
 ```
 
 ---
 
-## ⚠️ Challenges Faced
+# ⚙️ Workflow Explanation
 
-- Webhook verification requirements
-- Callback URL configuration
-- Understanding Verify Token usage
-- Access Token generation
-- Difference between Testing and Live Mode
-- HTTPS requirement for webhooks
+## Step 1 — Manual Trigger
 
----
+The workflow starts manually inside n8n for testing purposes.
 
-## 💡 Key Learnings
-
-- Access Tokens authenticate API requests.
-- Webhooks send real-time events to applications.
-- Callback URL must be publicly accessible.
-- Verify Token secures webhook verification.
-- Graph API returns structured JSON responses.
-- Event-driven automation is essential for AI workflows.
+This trigger executes the entire automation pipeline.
 
 ---
 
-## 🧠 Skills Gained
+## Step 2 — Google Sheets
 
-- Instagram Graph API
-- Facebook Graph API
-- Webhook Configuration
-- Access Token Management
-- API Authentication
-- HTTP APIs
+The workflow reads the required information from Google Sheets.
+
+Example data:
+
+- Caption
+- Image URL
+- Hashtags
+- Post Description
+
+This allows dynamic content management without editing the workflow.
+
+---
+
+## Step 3 — HTTP Request (Create Media Container)
+
+The first HTTP Request sends data to the Instagram Graph API.
+
+Purpose:
+
+- Authenticate request
+- Upload image URL
+- Create Media Container
+
+This step prepares the Instagram post before publishing.
+
+---
+
+## Step 4 — HTTP Request (Publish Media)
+
+The second HTTP Request publishes the media container to Instagram.
+
+This is the final publishing step in the automation workflow.
+
+---
+
+# 📚 What I Learned
+
+## Google Sheets Integration
+
+- Reading spreadsheet data
+- Dynamic workflow inputs
+- Managing structured datasets
+
+---
+
+## HTTP Request Node
+
+- GET Requests
+- POST Requests
+- Request Headers
+- Authorization
+- Query Parameters
+- Request Body
+
+---
+
+## Instagram Graph API
+
+- API Endpoints
+- Business Account Requirements
+- Media Publish API
+- Access Token Authentication
+
+---
+
+## REST APIs
+
+- HTTP Methods
+- Request-Response Cycle
+- JSON Formatting
+- API Testing
+
+---
+
+## Meta Developer Platform
+
+- Creating Developer Apps
+- API Configuration
+- Access Tokens
+- Business Verification
+- API Permissions
+
+---
+
+# 🧠 Skills Developed
+
+- Workflow Automation
+- API Integration
+- REST APIs
+- HTTP Requests
 - JSON Handling
-- Automation Planning
----
-
-## 📸 Screenshots
-
-- Instagram Business Account
-- Generate Access Token
-- Webhook Configuration
-- Meta Developer Dashboard
-- Graph API Setup
+- Google Sheets Automation
+- Instagram Graph API
+- Authentication
+- Error Debugging
+- Automation Design
+- Social Media Automation
 
 ---
 
-## 🎯 Outcome
+# ⚠️ Challenges Faced
 
-Successfully explored the Instagram Graph API, understood Access Token generation, learned how Webhook verification works, and designed the workflow architecture for integrating Instagram Business API with **n8n**. This setup provides the foundation for building AI-powered Instagram automation in the next phase.
+During development, several challenges were encountered.
+
+### Instagram API Authentication
+
+Understanding how Meta authenticates API requests using Access Tokens.
 
 ---
 
-## ⭐ Connect With Me
+### Access Token
 
-**GitHub:** https://github.com/Arash7-eng
+Generating and managing valid access tokens.
 
-If you found this project helpful, feel free to ⭐ star the repository and follow my **30 Days of AI Automation & Agentic AI Challenge**!
+---
+
+### Business Account Configuration
+
+Instagram Graph API only works with Business accounts.
+
+---
+
+### API Permissions
+
+Understanding required permissions like:
+
+- instagram_basic
+- instagram_content_publish
+- pages_manage_metadata
+
+---
+
+### HTTP Request Errors
+
+Debugging invalid requests and authentication failures.
+
+---
+
+### Media Publishing
+
+Learning the difference between:
+
+- Creating Media Container
+- Publishing Media
+
+---
+
+# 💡 Key Learnings
+
+- Instagram Graph API uses REST architecture.
+- HTTP Request nodes can communicate with external APIs.
+- Google Sheets can act as a lightweight database.
+- JSON is the standard data format for API communication.
+- Authentication is required for secure API access.
+- Workflow automation significantly reduces manual effort.
+
+---
+
+# 📈 Future Improvements
+
+This project can be extended with:
+
+✅ AI Caption Generator
+
+✅ AI Hashtag Generator
+
+✅ Auto Image Generation
+
+✅ Scheduled Posting
+
+✅ Instagram Analytics
+
+✅ Multi-Account Support
+
+✅ Error Notifications
+
+✅ Email Reports
+
+✅ Telegram Alerts
+
+✅ AI Content Approval
+
+---
+# 🎯 Project Outcome
+
+This project successfully demonstrates how workflow automation tools like **n8n** can integrate with the **Instagram Graph API** to automate social media tasks.
+
+Through this implementation, I gained practical knowledge of API authentication, HTTP requests, JSON data handling, workflow design, and social media automation.
+
+Although complete publishing requires additional production permissions from Meta, the workflow provides a strong foundation for building AI-powered Instagram automation systems.
+
+---
+
+# 🙌 Acknowledgements
+
+Special thanks to:
+
+- Meta Developers Platform
+- Instagram Graph API Documentation
+- n8n Community
+- Open Source Contributors
+
+---
+
+# 📬 Connect With Me
+
+### 👩‍💻 GitHub
+
+**https://github.com/Arash7-eng**
+
+---
+
+### ⭐ If you found this project useful, consider giving it a Star!
+
+Thank you for visiting my repository and following my **30 Days of AI Automation & Agentic AI Challenge**. 🚀
