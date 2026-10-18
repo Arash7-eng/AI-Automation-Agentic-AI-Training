@@ -1,0 +1,323 @@
+{
+  "name": "Student Study Help Project",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1ZMaYHdhGrExsSaaNWNhrEjKM8RsQufqpVp5EFQfN28w",
+          "mode": "list",
+          "cachedResultName": "Student Study Material Request Form",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZMaYHdhGrExsSaaNWNhrEjKM8RsQufqpVp5EFQfN28w/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 48117703,
+          "mode": "list",
+          "cachedResultName": "Form responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZMaYHdhGrExsSaaNWNhrEjKM8RsQufqpVp5EFQfN28w/edit#gid=48117703"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d26c875f-1a13-4cbd-b49c-6134d2e259d9",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "CVL59LDyNOqt3AYn",
+          "name": "Google Sheets Trigger account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a helpful academic content generator.\n\nCreate study material based on the student's request.\nStudent Name:{{ $json['  Student Name  '] }}\nMaterial Type: {{ $json['  Select Material Type  '] }}\nCourse/Branch: {{ $json['  Course / Branch  '] }}\nSemester: {{ $json['   Semester  '] }}\nSubject: {{ $json['  Subject  '] }}\nTopic: {{ $json['  Topic  '] }}\nDifficulty Level: {{ $json['  Difficulty / Level  '] }}\nAdditional Requirements:{{ $json['  Additional Requirements  '] }}\n\nInstructions:\n\n1. Generate high-quality educational content suitable for the student's semester.\n2. Use simple and easy-to-understand language.\n3. If the material type is Notes, create well-structured notes with headings, definitions, explanations, examples, and important points.\n4. If the material type is Assignment, create a properly structured assignment with introduction, detailed answers, examples where useful, conclusion, and references.\n5. If the material type is Presentation, create slide-by-slide presentation content with a title and clear bullet points.\n6. If multiple material types are selected, create a separate clearly labeled section for each type.\n7. Use the requested topic and subject as the main focus.\n8. Follow the student's additional requirements.\n9. Do not mention that you are an AI.\n10. Return only the final educational content that can be placed into a PDF.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "34afd523-a1ea-4433-8d82-baa276f65a5b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        256
+      ],
+      "id": "347479bf-e4e8-40e0-9ead-f785346adb4c",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "eT1pIWQjXnUUzGCr",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1143dd4-1b7f-4e44-92ac-8d940a22d38e",
+              "name": "student_name",
+              "value": "={{ $('Google Sheets Trigger').item.json['  Student Name  '] }}",
+              "type": "string"
+            },
+            {
+              "id": "80880245-c06f-44ce-9df1-0a115e76a9b9",
+              "name": "student_email",
+              "value": "={{ $('Google Sheets Trigger').item.json['   Email Address  '] }}",
+              "type": "string"
+            },
+            {
+              "id": "e139705e-ae7c-4e54-b035-97dda3eba3c3",
+              "name": "material_type",
+              "value": "={{ $('Google Sheets Trigger').item.json['  Select Material Type  '] }}",
+              "type": "string"
+            },
+            {
+              "id": "f99ca33b-df33-42c8-a514-34abb6780f1c",
+              "name": "subject",
+              "value": "={{ $('Google Sheets Trigger').item.json['  Subject  '] }}",
+              "type": "string"
+            },
+            {
+              "id": "93fe2370-aeba-4d11-8080-b35b90b42e27",
+              "name": "topic",
+              "value": "={{ $('Google Sheets Trigger').item.json['  Topic  '] }}",
+              "type": "string"
+            },
+            {
+              "id": "399ef1b0-c2c5-43c4-91fa-d6d31b39e663",
+              "name": "content",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "f2f13c08-c81a-46ac-9d42-75ef9914c940",
+              "name": "",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "ee3a67af-a360-4c40-8819-48c91586d28c",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        560,
+        0
+      ],
+      "id": "ab4727e3-e48c-460e-baff-61a4cd9fa369",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n\n<style>\n\n@page {\n  margin: 22px;\n}\n\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n  margin: 0;\n  color: #1f2937;\n  background: #ffffff;\n  font-size: 13.5px;\n  line-height: 1.7;\n}\n\n/* ================= HEADER ================= */\n\n.header {\n  background: linear-gradient(135deg, #1d4ed8, #6d28d9);\n  color: white;\n  padding: 30px 25px;\n  border-radius: 14px;\n  text-align: center;\n  margin-bottom: 22px;\n}\n\n.header h1 {\n  margin: 0;\n  font-size: 29px;\n  color: white;\n}\n\n.header h2 {\n  margin: 7px 0 0;\n  font-size: 17px;\n  font-weight: normal;\n  color: #eef2ff;\n}\n\n/* ================= STUDENT INFORMATION ================= */\n\n.student-card {\n  background: #f8fafc;\n  border: 1px solid #dbeafe;\n  border-left: 6px solid #2563eb;\n  border-radius: 10px;\n  padding: 16px 20px;\n  margin-bottom: 18px;\n}\n\n.student-card h3 {\n  color: #1d4ed8;\n  font-size: 18px;\n  margin: 0 0 12px 0;\n}\n\n.student-card p {\n  margin: 5px 0;\n}\n\n.student-card strong {\n  color: #374151;\n}\n\n/* ================= TOPIC ================= */\n\n.topic-box {\n  background: linear-gradient(135deg, #eff6ff, #f5f3ff);\n  border: 1px solid #c7d2fe;\n  border-radius: 10px;\n  padding: 15px 20px;\n  margin-bottom: 22px;\n}\n\n.topic-label {\n  color: #6d28d9;\n  font-weight: bold;\n  font-size: 15px;\n}\n\n.topic-text {\n  margin-top: 4px;\n  color: #374151;\n  font-size: 14px;\n}\n\n/* ================= MAIN TITLE ================= */\n\n.main-title {\n  color: #1d4ed8;\n  font-size: 21px;\n  font-weight: bold;\n  border-left: 6px solid #7c3aed;\n  padding: 8px 12px;\n  background: #f5f3ff;\n  border-radius: 5px;\n  margin: 20px 0 18px 0;\n}\n\n/* ================= CONTENT ================= */\n\n.content {\n  font-size: 13.5px;\n  line-height: 1.75;\n  word-wrap: break-word;\n}\n\n/* ================= HEADINGS ================= */\n\n.content h1 {\n  color: white;\n  background: linear-gradient(135deg, #2563eb, #4f46e5);\n  padding: 10px 14px;\n  border-radius: 7px;\n  font-size: 21px;\n  margin: 22px 0 12px 0;\n  page-break-after: avoid;\n}\n\n.content h2 {\n  color: #1e40af;\n  background: #eff6ff;\n  border-left: 5px solid #2563eb;\n  padding: 8px 12px;\n  border-radius: 5px;\n  font-size: 18px;\n  margin: 20px 0 10px 0;\n  page-break-after: avoid;\n}\n\n.content h3 {\n  color: #6d28d9;\n  border-bottom: 2px solid #ddd6fe;\n  padding-bottom: 5px;\n  font-size: 16px;\n  margin: 18px 0 8px 0;\n  page-break-after: avoid;\n}\n\n.content h4 {\n  color: #047857;\n  background: #ecfdf5;\n  border-left: 4px solid #10b981;\n  padding: 6px 10px;\n  border-radius: 4px;\n  font-size: 15px;\n  margin: 15px 0 7px 0;\n}\n\n.content h5 {\n  color: #92400e;\n  font-size: 14px;\n  margin: 13px 0 5px 0;\n}\n\n/* ================= PARAGRAPHS ================= */\n\n.content p {\n  margin: 8px 0;\n  text-align: justify;\n}\n\n/* ================= BOLD ================= */\n\n.content strong {\n  color: #111827;\n  font-weight: bold;\n}\n\n/* ================= ITALIC ================= */\n\n.content em {\n  color: #4b5563;\n}\n\n/* ================= NUMBERED LIST ================= */\n\n.content ol {\n  margin: 10px 0 15px 0;\n  padding-left: 28px;\n}\n\n.content ol li {\n  margin-bottom: 7px;\n  padding-left: 4px;\n}\n\n/* ================= BULLET LIST ================= */\n\n.content ul {\n  margin: 10px 0 15px 0;\n  padding-left: 28px;\n}\n\n.content ul li {\n  margin-bottom: 7px;\n  padding-left: 4px;\n}\n\n/* ================= TABLE ================= */\n\n.content table {\n  width: 100%;\n  border-collapse: collapse;\n  margin: 18px 0;\n  font-size: 11.5px;\n  page-break-inside: avoid;\n}\n\n.content thead {\n  display: table-header-group;\n}\n\n.content th {\n  background: #2563eb;\n  color: white;\n  font-weight: bold;\n  padding: 8px 7px;\n  border: 1px solid #1d4ed8;\n  text-align: left;\n}\n\n.content td {\n  border: 1px solid #cbd5e1;\n  padding: 7px;\n  vertical-align: top;\n}\n\n.content tr:nth-child(even) td {\n  background: #f8fafc;\n}\n\n/* ================= CODE ================= */\n\n.content code {\n  background: #f3f4f6;\n  padding: 2px 5px;\n  border-radius: 4px;\n  font-family: Consolas, monospace;\n  font-size: 12px;\n}\n\n/* ================= HORIZONTAL LINE ================= */\n\n.content hr {\n  border: none;\n  border-top: 1px solid #d1d5db;\n  margin: 18px 0;\n}\n\n/* ================= IMPORTANT BOX ================= */\n\n.info-box {\n  background: #fff7ed;\n  border-left: 5px solid #f97316;\n  border-radius: 7px;\n  padding: 13px 16px;\n  margin-top: 22px;\n}\n\n.info-box strong {\n  color: #c2410c;\n}\n\n/* ================= SUCCESS BOX ================= */\n\n.success-box {\n  background: #ecfdf5;\n  border-left: 5px solid #10b981;\n  border-radius: 7px;\n  padding: 13px 16px;\n  margin-top: 18px;\n}\n\n/* ================= FOOTER ================= */\n\n.footer {\n  margin-top: 30px;\n  padding: 12px;\n  text-align: center;\n  border-top: 2px solid #e5e7eb;\n  font-size: 10.5px;\n  color: #6b7280;\n}\n\n</style>\n</head>\n\n\n<body>\n\n<!-- ================= HEADER ================= -->\n\n<div class=\"header\">\n\n  <h1>{{ $json.student_name }}</h1>\n\n  <h2>{{ $json.material_type }}</h2>\n\n</div>\n\n\n<!-- ================= STUDENT INFORMATION ================= -->\n\n<div class=\"student-card\">\n\n  <h3>🎓 Student Information</h3>\n\n  <p>\n    <strong>Name:</strong>\n    {{ $json.student_name }}\n  </p>\n\n  <p>\n    <strong>Email:</strong>\n    {{ $json.student_email }}\n  </p>\n\n  <p>\n    <strong>Material:</strong>\n    {{ $json.material_type }}\n  </p>\n\n  <p>\n    <strong>Subject:</strong>\n    {{ $json.subject }}\n  </p>\n\n</div>\n\n\n<!-- ================= TOPIC ================= -->\n\n<div class=\"topic-box\">\n\n  <div class=\"topic-label\">\n    📚 TOPIC\n  </div>\n\n  <div class=\"topic-text\">\n    {{ $json.topic }}\n  </div>\n\n</div>\n\n\n<!-- ================= STUDY MATERIAL ================= -->\n\n<div class=\"main-title\">\n  📖 Generated Study Material\n</div>\n\n\n<div class=\"content\">\n\n{{\n(() => {\n\n  let text = $json.content || '';\n\n  text = text.replace(/\\r/g, '');\n\n  const lines = text.split('\\n');\n\n  let html = '';\n  let inOl = false;\n  let inUl = false;\n  let paragraph = [];\n  let tableRows = [];\n\n  /* ================= CLOSE LISTS ================= */\n\n  function closeLists() {\n\n    if (inOl) {\n      html += '</ol>';\n      inOl = false;\n    }\n\n    if (inUl) {\n      html += '</ul>';\n      inUl = false;\n    }\n\n  }\n\n  /* ================= FORMAT INLINE MARKDOWN ================= */\n\n  function formatInline(value) {\n\n    value = value.trim();\n\n    /* Escape basic HTML */\n    value = value\n      .replace(/&(?!(amp|lt|gt|quot|#39);)/g, '&amp;')\n      .replace(/</g, '&lt;')\n      .replace(/>/g, '&gt;');\n\n    /* Bold */\n    value = value.replace(\n      /\\*\\*(.*?)\\*\\*/g,\n      '<strong>$1</strong>'\n    );\n\n    /* Italic */\n    value = value.replace(\n      /(?<!\\*)\\*([^*\\n]+)\\*(?!\\*)/g,\n      '<em>$1</em>'\n    );\n\n    /* Inline code */\n    value = value.replace(\n      /`([^`]+)`/g,\n      '<code>$1</code>'\n    );\n\n    return value;\n\n  }\n\n\n  /* ================= FLUSH PARAGRAPH ================= */\n\n  function flushParagraph() {\n\n    if (paragraph.length > 0) {\n\n      let p = paragraph.join(' ').trim();\n\n      if (p !== '') {\n\n        html += '<p>' + formatInline(p) + '</p>';\n\n      }\n\n      paragraph = [];\n\n    }\n\n  }\n\n\n  /* ================= TABLE FUNCTIONS ================= */\n\n  function isTableLine(line) {\n\n    return line.includes('|') &&\n           line.trim().startsWith('|');\n\n  }\n\n\n  function cleanTableCell(cell) {\n\n    return formatInline(\n      cell.trim()\n        .replace(/^`|`$/g, '')\n    );\n\n  }\n\n\n  function renderTable() {\n\n    if (tableRows.length < 2) {\n      tableRows = [];\n      return;\n    }\n\n    flushParagraph();\n    closeLists();\n\n    /* Remove markdown separator row */\n\n    let rows = tableRows.filter(row => {\n\n      return !row.every(cell =>\n        /^:?-{3,}:?$/.test(cell.trim())\n      );\n\n    });\n\n    if (rows.length === 0) {\n      tableRows = [];\n      return;\n    }\n\n    html += '<table>';\n\n    /* Header */\n\n    html += '<thead><tr>';\n\n    rows[0].forEach(cell => {\n\n      html += '<th>' +\n        cleanTableCell(cell) +\n        '</th>';\n\n    });\n\n    html += '</tr></thead>';\n\n    /* Body */\n\n    if (rows.length > 1) {\n\n      html += '<tbody>';\n\n      for (let r = 1; r < rows.length; r++) {\n\n        html += '<tr>';\n\n        rows[r].forEach(cell => {\n\n          html += '<td>' +\n            cleanTableCell(cell) +\n            '</td>';\n\n        });\n\n        html += '</tr>';\n\n      }\n\n      html += '</tbody>';\n\n    }\n\n    html += '</table>';\n\n    tableRows = [];\n\n  }\n\n\n  /* ================= MAIN LOOP ================= */\n\n  for (let i = 0; i < lines.length; i++) {\n\n    let line = lines[i].trim();\n\n\n    /* ================= TABLE ================= */\n\n    if (isTableLine(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      let cells = line\n        .replace(/^\\|/, '')\n        .replace(/\\|$/, '')\n        .split('|');\n\n      tableRows.push(cells);\n\n      /* Check next line */\n\n      let nextLine = '';\n\n      if (i + 1 < lines.length) {\n        nextLine = lines[i + 1].trim();\n      }\n\n      /* If next line is not a table row, render table */\n\n      if (!isTableLine(nextLine)) {\n        renderTable();\n      }\n\n      continue;\n\n    }\n\n\n    /* Empty line */\n\n    if (line === '') {\n\n      flushParagraph();\n\n      continue;\n\n    }\n\n\n    /* ================= HEADINGS ================= */\n\n    if (/^#####\\s+/.test(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      html += '<h5>' +\n        formatInline(line.replace(/^#####\\s+/, '')) +\n        '</h5>';\n\n      continue;\n\n    }\n\n\n    if (/^####\\s+/.test(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      html += '<h4>' +\n        formatInline(line.replace(/^####\\s+/, '')) +\n        '</h4>';\n\n      continue;\n\n    }\n\n\n    if (/^###\\s+/.test(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      html += '<h3>' +\n        formatInline(line.replace(/^###\\s+/, '')) +\n        '</h3>';\n\n      continue;\n\n    }\n\n\n    if (/^##\\s+/.test(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      html += '<h2>' +\n        formatInline(line.replace(/^##\\s+/, '')) +\n        '</h2>';\n\n      continue;\n\n    }\n\n\n    if (/^#\\s+/.test(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      html += '<h1>' +\n        formatInline(line.replace(/^#\\s+/, '')) +\n        '</h1>';\n\n      continue;\n\n    }\n\n\n    /* ================= HORIZONTAL LINE ================= */\n\n    if (/^-{3,}$/.test(line)) {\n\n      flushParagraph();\n      closeLists();\n\n      html += '<hr>';\n\n      continue;\n\n    }\n\n\n    /* ================= NUMBERED LIST ================= */\n\n    if (/^\\d+\\.\\s+/.test(line)) {\n\n      flushParagraph();\n\n      if (inUl) {\n        html += '</ul>';\n        inUl = false;\n      }\n\n      if (!inOl) {\n        html += '<ol>';\n        inOl = true;\n      }\n\n      let item = line.replace(/^\\d+\\.\\s+/, '');\n\n      html += '<li>' +\n        formatInline(item) +\n        '</li>';\n\n      continue;\n\n    }\n\n\n    /* ================= BULLET LIST ================= */\n\n    if (/^[-*]\\s+/.test(line)) {\n\n      flushParagraph();\n\n      if (inOl) {\n        html += '</ol>';\n        inOl = false;\n      }\n\n      if (!inUl) {\n        html += '<ul>';\n        inUl = true;\n      }\n\n      let item = line.replace(/^[-*]\\s+/, '');\n\n      html += '<li>' +\n        formatInline(item) +\n        '</li>';\n\n      continue;\n\n    }\n\n\n    /* ================= NORMAL TEXT ================= */\n\n    closeLists();\n\n    paragraph.push(line);\n\n  }\n\n\n  /* Final cleanup */\n\n  flushParagraph();\n  closeLists();\n\n  if (tableRows.length > 0) {\n    renderTable();\n  }\n\n  return html;\n\n})()\n}}\n\n</div>\n\n\n<!-- ================= NOTE ================= -->\n\n<div class=\"info-box\">\n\n  <strong>💡 Note:</strong>\n\n  This study material was generated specifically for\n  {{ $json.student_name }}\n  based on the selected subject and topic.\n\n</div>\n\n\n<!-- ================= SUCCESS ================= -->\n\n<div class=\"success-box\">\n\n  <strong>✓ Generated Successfully</strong>\n\n  <br>\n\n  This document was automatically created by the\n  Student Study Material System.\n\n</div>\n\n\n<!-- ================= FOOTER ================= -->\n\n<div class=\"footer\">\n\n  Student Study Material Automation\n  <br>\n\n  AI-Powered Academic Content Generator\n\n</div>\n\n</body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        768,
+        0
+      ],
+      "id": "2f6adb67-8ae8-4c1f-90ab-077e3283fc85",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "operation": "URL/HTML to PDF",
+        "convertType": "htmlToPDF",
+        "html": "={{ $json.html }}",
+        "advancedOptions": {}
+      },
+      "type": "n8n-nodes-pdfco.PDFco Api",
+      "typeVersion": 1.1,
+      "position": [
+        976,
+        0
+      ],
+      "id": "7236b792-c73b-492e-9b2f-1061629d951e",
+      "name": "PDFco API",
+      "credentials": {
+        "pdfcoOAuth2Api": {
+          "id": "zpV4PNSJJYyrmJVh",
+          "name": "PDF.co account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('PDFco API').item.json.url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1184,
+        0
+      ],
+      "id": "4c043ece-e886-4440-bfec-921a45e2a8da",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Edit Fields').item.json.student_email }}",
+        "subject": "Your Requested Study Material",
+        "message": "=Hello {{ $('Edit Fields').item.json.student_name }},  Your requested {{ $('Edit Fields').item.json.material_type }} has been generated successfully.  Subject: {{ $('Edit Fields').item.json.subject }} Topic: {{ $('Edit Fields').item.json.topic }}  Please find the requested PDF attached to this email.  Regards, Student Study Material System",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1392,
+        0
+      ],
+      "id": "ae6ea134-b262-4811-a95d-05f6cdf36cfc",
+      "name": "Send a message",
+      "webhookId": "770b9453-4d37-4703-97b8-ad8f1fbd8f07",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "3jhP9KLdbyRL07Uj",
+          "name": "Gmail account 3"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "PDFco API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDFco API": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "06560f90-8eca-4110-9523-40bad21ba692",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d80c7bd0cd96007a59f68bd8150310c738b188fb2dbd3f5a8edea12c35f7b05d"
+  },
+  "nodeGroups": [],
+  "id": "JWnP2Qfk3P72H28V",
+  "tags": []
+}
